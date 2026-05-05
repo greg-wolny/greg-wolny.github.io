@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backend wiring test</title>
+  <meta name="description" content="Sanity-checks the github.io → Oracle Cloud API call across origins.">
+  <style>
+    :root { color-scheme: light dark; --bg: #f7f5f1; --surface: #ffffff; --text: #1a1a1a; --muted: #5e5852; --hairline: #e3ddd4; --ok: #1f7a3a; --err: #b22; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #131210; --surface: #1c1a17; --text: #f1ece4; --muted: #9a928a; --hairline: #2c2925; --ok: #4dba6f; --err: #e66; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    h1 {
+      font-family: ui-serif, "New York", Georgia, serif;
+      font-weight: 600;
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .lede { color: var(--muted); margin: 0 0 2rem; max-width: 56ch; }
+    .row { display: flex; gap: 0.5rem; margin: 0 0 1rem; align-items: center; flex-wrap: wrap; }
+    .row label { color: var(--muted); font-size: 0.875rem; }
+    .row code {
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.8125rem;
+    }
+    button {
+      font: inherit;
+      background: var(--text);
+      color: var(--bg);
+      border: 0;
+      padding: 0.625rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    button:hover { opacity: 0.85; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.625rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .badge.ok { background: rgba(31, 122, 58, 0.15); color: var(--ok); }
+    .badge.err { background: rgba(178, 34, 34, 0.15); color: var(--err); }
+    .badge.idle { background: var(--surface); color: var(--muted); border: 1px solid var(--hairline); }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0 0 1rem;
+    }
+    .meta { color: var(--muted); font-size: 0.875rem; margin: 0 0 0.5rem; }
+    a { color: inherit; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); color: var(--muted); font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Backend wiring test</h1>
+    <p class="lede">This page lives on <code>greg-wolny.github.io</code>. The button below calls the Oracle Cloud backend at <code>64-181-251-135.nip.io</code> over HTTPS — a real cross-origin request the browser will only allow if the server's CORS header matches this origin.</p>
+
+    <div class="row">
+      <label>Endpoint:</label>
+      <code id="endpoint">https://64-181-251-135.nip.io/api/hello</code>
+    </div>
+
+    <div class="row">
+      <button id="ping">Ping backend</button>
+      <span id="status" class="badge idle">idle</span>
+      <span id="latency" class="meta"></span>
+    </div>
+
+    <p class="meta">Response:</p>
+    <pre id="result">— click Ping backend —</pre>
+
+    <footer>
+      <p><a href="/">← Greg's apps</a></p>
+    </footer>
+  </main>
+
+  <script>
+    const ENDPOINT = "https://64-181-251-135.nip.io/api/hello";
+    const btn = document.getElementById("ping");
+    const result = document.getElementById("result");
+    const status = document.getElementById("status");
+    const latency = document.getElementById("latency");
+
+    function setStatus(kind, label) {
+      status.className = "badge " + kind;
+      status.textContent = label;
+    }
+
+    async function ping() {
+      btn.disabled = true;
+      setStatus("idle", "calling…");
+      latency.textContent = "";
+      result.textContent = "";
+      const t0 = performance.now();
+      try {
+        const res = await fetch(ENDPOINT, { method: "GET", cache: "no-store" });
+        const ms = Math.round(performance.now() - t0);
+        latency.textContent = `${ms} ms`;
+        const body = await res.text();
+        if (!res.ok) {
+          setStatus("err", `HTTP ${res.status}`);
+          result.textContent = body || `(empty body)`;
+          return;
+        }
+        setStatus("ok", `HTTP ${res.status}`);
+        try {
+          result.textContent = JSON.stringify(JSON.parse(body), null, 2);
+        } catch {
+          result.textContent = body;
+        }
+      } catch (err) {
+        const ms = Math.round(performance.now() - t0);
+        latency.textContent = `${ms} ms`;
+        setStatus("err", "fetch failed");
+        result.textContent = String(err) +
+          "\n\nLikely causes:\n" +
+          "  • OCI Security List doesn't allow port 443 inbound\n" +
+          "  • Backend Caddy isn't running\n" +
+          "  • CORS Allow-Origin doesn't include this origin";
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    btn.addEventListener("click", ping);
+    // Auto-ping on load so the page tells you immediately whether wiring works.
+    ping();
+  </script>
+</body>
+</html>
