@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Postcard — Privacy Policy</title>
+  <meta name="description" content="How Postcard handles your data. Short answer: it stays on your device.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/postcard/">
+        <svg class="glyph-sm" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="14" width="52" height="36" rx="8" stroke="currentColor" stroke-width="3.5"/>
+          <path d="M14 32 Q22 22 28 32 Q34 42 40 32 Q46 22 50 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>Postcard</span>
+      </a>
+    </div>
+  </header>
+
+  <article class="doc">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective 2026-05-05.</p>
+
+      <div class="summary">
+        <p>Postcard is built so your recordings stay on your iPhone and Apple Watch. We do not run servers, we do not collect analytics, and we do not include any third-party tracking or advertising SDKs.</p>
+      </div>
+
+      <h2>What stays on your device</h2>
+      <p>Everything Postcard creates from your recordings is stored locally on the device that captured it. That includes:</p>
+      <ul>
+        <li><strong>Voice recordings</strong> — saved to Postcard's local storage on your iPhone or Apple Watch.</li>
+        <li><strong>Transcripts</strong> — generated on-device by Apple's Speech framework. Postcard requires Apple's on-device recognition mode and never sends audio to Apple's cloud Speech service.</li>
+        <li><strong>Summaries</strong> — generated on-device by Apple's FoundationModels framework (Apple Intelligence).</li>
+        <li><strong>Search and Ask</strong> — powered by Apple's NLContextualEmbedding model, which runs on-device. Apple may download the model assets to your device the first time the feature is used.</li>
+        <li><strong>Photos and titles</strong> you attach to a moment.</li>
+      </ul>
+
+      <h2>Permissions Postcard may request</h2>
+      <p>Postcard asks for permissions only at the moment you opt into a feature that needs them. You can revoke any of them in iOS Settings at any time.</p>
+      <ul>
+        <li><strong>Microphone</strong> — to record your voice.</li>
+        <li><strong>Speech Recognition</strong> — required by Apple's API for on-device transcription.</li>
+        <li><strong>Location</strong> — when granted, Postcard reads your location at the moment of capture so a moment can be tagged with a place name. The coordinate is sent to Apple's reverse-geocoding service to translate it into a human-readable name (e.g. "Riverside Park"); the name is then stored on your device. Postcard does not share location with anyone else.</li>
+        <li><strong>Calendar</strong> — when granted, Postcard reads your active or upcoming calendar events to tag a moment with a meeting name and to power the optional post-meeting capture prompt. All reads are local.</li>
+        <li><strong>Photos</strong> — when granted, lets you attach a photo to a moment (a Postcard Pro feature).</li>
+        <li><strong>HealthKit</strong> (Apple Watch) — when granted, the Watch reads workout end times to offer the optional post-workout capture prompt (a Postcard Pro feature). Reads are on-device only.</li>
+        <li><strong>Notifications</strong> — when granted, Postcard schedules local notifications. No remote push servers are used.</li>
+      </ul>
+
+      <h2>What Postcard does <em>not</em> do</h2>
+      <ul>
+        <li>We do not operate any servers or backends. Postcard ships without one.</li>
+        <li>We do not collect analytics or telemetry of any kind.</li>
+        <li>We do not include third-party SDKs for advertising, tracking, attribution, crash reporting, or social media.</li>
+        <li>We do not sell, share, or rent any data, because we have no data to sell.</li>
+      </ul>
+
+      <h2>Apple Watch sync</h2>
+      <p>Audio recorded on your Apple Watch is transferred to your paired iPhone using Apple's WatchConnectivity framework, which moves files locally between the two devices over Bluetooth or peer-to-peer Wi-Fi. The transfer never goes through any server.</p>
+
+      <h2>Purchases</h2>
+      <p>Postcard Pro is sold as a one-time non-consumable in-app purchase via Apple's StoreKit. Apple processes the transaction; we receive only the entitlement status and never see your payment details.</p>
+
+      <h2>Children's privacy</h2>
+      <p>Postcard is not directed at children under 13 and does not knowingly collect personal information from them. Because Postcard does not collect personal information from anyone, this is largely moot.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If Postcard ever changes how it handles data — for example, if a future version adds optional iCloud sync — we will update this page, bump the effective date above, and surface the change inside the app before it takes effect.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or concerns? Email <a href="mailto:postcard@example.com">postcard@example.com</a>.</p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="/postcard/">Home</a>
+        <a href="support">Support</a>
+        <a href="/">Other apps</a>
+      </nav>
+      <span>&copy; 2026 Greg Wolny.</span>
+    </div>
+  </footer>
+</body>
+</html>
