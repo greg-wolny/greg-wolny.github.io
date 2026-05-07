@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>You got a Postcard — Postcard</title>
+  <meta name="description" content="A friend sent you a Postcard — a private voice journal entry. Open it in the Postcard app on iPhone.">
+  <meta name="apple-itunes-app" content="app-id=6765812045">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    section.share-hero {
+      padding: 4rem 0 1.5rem;
+      text-align: center;
+    }
+    section.share-hero .envelope {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 1.5rem;
+      color: var(--brand);
+    }
+    section.share-hero h1 {
+      font-family: ui-serif, "New York", Georgia, serif;
+      font-weight: 600;
+      font-size: 2.25rem;
+      letter-spacing: -0.015em;
+      margin: 0 0 0.75rem;
+      line-height: 1.1;
+    }
+    section.share-hero .lede {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      max-width: 36ch;
+      margin: 0 auto 2.5rem;
+      line-height: 1.4;
+    }
+    .cta-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      max-width: 22rem;
+      margin: 0 auto 1.5rem;
+    }
+    .cta-primary {
+      background: var(--brand);
+      color: #fff;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      padding: 0.95rem 1.25rem;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+    }
+    .cta-primary:hover { text-decoration: none; opacity: 0.92; }
+    .cta-note {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      text-align: center;
+      max-width: 30rem;
+      margin: 0 auto;
+      line-height: 1.45;
+    }
+    .cta-note strong { color: var(--text-secondary); }
+
+    section.what-is {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--hairline);
+      margin-top: 2rem;
+    }
+    section.what-is h2 {
+      font-family: ui-serif, "New York", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.75rem;
+    }
+    section.what-is p {
+      color: var(--text-secondary);
+      margin: 0 0 1rem;
+      font-size: 1rem;
+    }
+    section.what-is .privacy-line {
+      color: var(--text-tertiary);
+      font-size: 0.9375rem;
+      margin-top: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/postcard/">
+        <svg class="glyph-sm" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="14" width="52" height="36" rx="8" stroke="currentColor" stroke-width="3.5"/>
+          <path d="M14 32 Q22 22 28 32 Q34 42 40 32 Q46 22 50 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>Postcard</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="share-hero">
+    <div class="container">
+      <svg class="envelope" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="6" y="14" width="52" height="36" rx="6" stroke="currentColor" stroke-width="3.5"/>
+        <path d="M6 18 L32 36 L58 18" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h1>A friend sent you a Postcard.</h1>
+      <p class="lede">Postcards are voice notes — a thought, a place, a moment, captured by someone you know. Open this one in the Postcard app on iPhone.</p>
+
+      <div class="cta-stack">
+        <a class="cta-primary" href="https://apps.apple.com/app/id6765812045">Get Postcard on the App Store</a>
+      </div>
+      <p class="cta-note"><strong>Already have Postcard?</strong> Return to your Messages thread and tap the <em>.postcard</em> file again — it'll open inside the app and you can save it to your timeline.</p>
+    </div>
+  </section>
+
+  <section class="what-is">
+    <div class="container">
+      <h2>What is Postcard?</h2>
+      <p>Postcard is a private voice journal for iPhone and Apple Watch. Press record, speak a thought, and Postcard transcribes, summarizes, and indexes it — all on your device.</p>
+      <p>Sharing is optional, by design. When a friend sends you a postcard, only what they chose to include comes along — no servers, no tracking. Apple delivers the file through iMessage; Postcard runs no infrastructure of its own.</p>
+      <p class="privacy-line"><a href="privacy">Read our privacy policy</a> for the full story.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="/postcard/">About Postcard</a>
+        <a href="privacy">Privacy</a>
+        <a href="support">Support</a>
+      </nav>
+      <span>&copy; 2026 Greg Wolny.</span>
+    </div>
+  </footer>
+</body>
+</html>
