@@ -92,17 +92,6 @@ section.hero .tagline {
   margin: 0 auto 2rem;
   line-height: 1.4;
 }
-section.hero .availability {
-  display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brand);
-  background: var(--brand-soft);
-  padding: 0.4rem 0.875rem;
-  border-radius: 999px;
-  font-weight: 600;
-}
 
 /* Features */
 section.features {
