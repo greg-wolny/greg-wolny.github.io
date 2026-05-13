@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Postcard — Product overview</title>
-  <meta name="description" content="What Postcard does, surface by surface, and what's in the free tier vs. Pro.">
+  <title>Postcard — Product guide</title>
+  <meta name="description" content="What Postcard does, surface by surface, with quick tips for getting the most out of each feature.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,97 +22,148 @@
 
   <article class="doc">
     <div class="container">
-      <h1>Product overview</h1>
-      <p class="effective">What's in the app, surface by surface. Concrete — not a pitch.</p>
+      <h1>Product guide</h1>
+      <p class="effective">What's in the app, surface by surface — with a short tip on how to use each feature. Concrete, not a pitch.</p>
 
       <div class="summary">
-        <p>Postcard is a voice journal for iPhone and Apple Watch. You hold a button, speak for a few seconds to a few minutes, and Postcard transcribes, captions, and tags the recording on-device. Later you can search by meaning, ask questions of your own moments, or share a moment as a beautifully rendered postcard via iMessage. Everything stays on your phone.</p>
+        <p>Postcard is a voice journal for iPhone and Apple Watch. You hold a button, speak for a few seconds to a few minutes, and Postcard transcribes, captions, and tags the recording <strong>on-device</strong>. Later you can search by meaning, ask questions of your own moments, or share a moment as a beautifully rendered postcard via iMessage. Everything stays on your phone — there are no servers, no analytics, no third-party tracking.</p>
       </div>
 
       <h2>Capture</h2>
-      <p>There are three ways to capture a moment.</p>
+      <p>There are four ways to start a recording. Pick whichever one matches the situation.</p>
       <ul>
-        <li><strong>Tap the mic.</strong> On the home screen or on the Apple Watch — the simplest way. Defaults to a 30-second recording with a one-tap "extend."</li>
-        <li><strong>Action Button.</strong> On iPhone 15 Pro and later, configure the Action Button in iOS Settings to trigger Postcard. One press starts a 30-second recording with a visible mic indicator.</li>
-        <li><strong>Active Session.</strong> Tap "Start session" to enter explicit recording mode — long-form audio with a Live Activity in the Dynamic Island, a configurable max duration, and a rolling 30-second buffer you can bookmark mid-session. Made for meetings, interviews, lectures, and long walks where you want retroactive capture.</li>
+        <li><strong>Tap the mic (EchoFAB).</strong> The round mic button at the bottom-right of the Today tab. One tap opens a 30-second timed recording sheet with a visible countdown and an <em>Extend</em> button if you need more time.<br><em>Tip:</em> the EchoFAB also appears on Apple Watch as the round button on the home screen — same behavior.</li>
+        <li><strong>Long-press the EchoFAB → Echo.</strong> Holding the mic button starts an <strong>Echo session</strong> — a rolling 30-second audio buffer with a Live Activity in the Dynamic Island. Use it when you want retroactive capture: in meetings, on walks, during interviews. Tap the bookmark pill (or the Live Activity itself) to save the last 30 seconds as a moment without ending the session. End the session whenever you're done; saved bookmarks land in your timeline as separate moments.<br><em>Tip:</em> bookmarks remember where you were when you tapped, not where you are when the session ends — handy for long walks.</li>
+        <li><strong>Action Button.</strong> On iPhone 15 Pro and later, open iOS Settings → Action Button → choose Shortcut → pick the "Record a Postcard moment" shortcut. After that, one press of the Action Button starts a 30-second recording.<br><em>Tip:</em> works from the lock screen and from any app.</li>
+        <li><strong>Siri.</strong> "Hey Siri, record a Postcard moment" starts the same 30-second timed recording.</li>
       </ul>
-      <p>Every recording is transcribed on-device with Apple's Speech framework and given a one-line caption by Apple Intelligence (FoundationModels). Context the phone already knows — where you were, what was on your calendar, whether you were in a workout — is attached to the moment as metadata. None of it leaves the device.</p>
+      <p>Every recording is transcribed on-device with Apple's Speech framework and given a one-line caption by Apple Intelligence. Postcard also attaches context the phone already knows — where you were, what was on your calendar around that time, whether you were in a workout — as metadata chips on the moment. None of it leaves the device.</p>
 
       <h2>Today timeline</h2>
-      <p>The home tab shows the moments you captured today, grouped by date with timestamps, durations, transcripts, and captions. A streak chip appears once you've captured on two or more days in a row. Tap a moment to see the full transcript, the waveform, and the action bar — share, save audio, send to Reminders, send to Calendar, set private, pin, attach a photo.</p>
-      <p>The "new moments are private" toggle in Settings makes every new capture private by default. Private moments don't appear in search results or in Ask answers until you toggle them visible.</p>
+      <p>The home tab shows the moments you've captured today (and, as you scroll, recent days), grouped with timestamps, durations, transcript previews, and AI captions.</p>
+      <ul>
+        <li><strong>Wordmark bar.</strong> The "Postcard" wordmark at the top of Today doubles as a launcher. Tap the mic icon next to it for a <strong>one-tap voice Ask</strong> — it jumps to the Ask tab and starts listening so you can just speak your question.</li>
+        <li><strong>Streak chip.</strong> Once you've captured on two or more consecutive days, a small streak chip appears under the wordmark. Skip a day and it resets — the goal is a gentle nudge, not a guilt trip.</li>
+        <li><strong>Moment row.</strong> Tap any row to open the full moment view: title, full transcript, on-device summary, waveform with playback controls, and the action bar.</li>
+      </ul>
+      <p><em>Tip:</em> long-press a moment in the list to pin it; pinned moments stay at the top of Today regardless of date.</p>
+
+      <h3>Moment detail — what each control does</h3>
+      <ul>
+        <li><strong>Title.</strong> Postcard generates one. Tap the ⋯ menu top-right → <em>Rename moment</em> to set your own.</li>
+        <li><strong>Waveform + transport.</strong> Tap play, skip back 10s, or jump to the start. Playback speed is on the transport row.</li>
+        <li><strong>Context chips.</strong> Place, weather, calendar event, workout — whatever Postcard pulled in automatically.</li>
+        <li><strong>Transcript / Summary tabs.</strong> Toggle between the full transcript and the on-device AI summary.</li>
+        <li><strong>Photo attachment.</strong> Inline in the header. Tap to add a photo from your library or take one with the camera (Pro).</li>
+        <li><strong>Action bar (bottom).</strong> Share · Pin · Add to task (Pro) · Add to calendar (Pro).</li>
+        <li><strong>⋯ menu (top-right).</strong> Rename moment · Mark private / Unmark private · Delete.</li>
+      </ul>
+      <p><em>Tip:</em> "Mark private" hides the moment from Search results and Ask answers. Use the <em>"New moments are private"</em> toggle in Settings → Privacy if you'd rather everything start private and only opt selected moments back in.</p>
 
       <h2>Search</h2>
-      <p>The Search tab does keyword matching out of the box. Postcard Pro unlocks <strong>semantic search</strong> — find a moment by what you meant, not just what you typed. "The offsite plan" surfaces the same moment as "the kickoff with Sarah," even when you used different words when you recorded.</p>
+      <p>The Search tab does keyword matching out of the box — type a word and matching transcripts surface immediately.</p>
+      <p><strong>Postcard Pro</strong> unlocks <strong>search by meaning</strong> (semantic search). "The offsite plan" surfaces the same moment as "the kickoff with Sarah," even though you didn't use the same words when you recorded.</p>
+      <p><em>Tip:</em> the semantic index builds in the background after the first few moments. You'll get a one-time notification ("Search by meaning is ready") when it's good to go.</p>
 
       <h2>Ask</h2>
-      <p>The Ask tab is a private Q&amp;A over your own moments. Ask "what did I learn this week?" or "what did I say about the move to Lisbon?" — Postcard retrieves the relevant moments via on-device embeddings, then hands them to Apple Intelligence with your question. The answer streams back with the source moments cited; one tap reads or plays any of them. Conversations carry context within a session so you can follow up ("tell me more about that") naturally.</p>
-      <p>You can ask out loud — there's a mic in the composer, with live on-device dictation. Or invoke it via Siri: "Ask Postcard what I said about the offsite."</p>
-      <p>Free tier: 3 questions per rolling 7-day window. Postcard Pro: unlimited.</p>
+      <p>The Ask tab is a private Q&amp;A over your own moments. Ask "what did I learn this week?" or "what did I say about the move to Lisbon?" — Postcard retrieves the most relevant moments via on-device embeddings, then hands them to Apple Intelligence with your question. The answer streams in with the source moments cited beneath it; one tap reads or plays any source moment in full.</p>
+      <ul>
+        <li><strong>Voice input.</strong> Tap the mic in the composer for live, on-device dictation while you speak. Tap stop and the question sends.</li>
+        <li><strong>Follow-up chips.</strong> After each answer, Postcard suggests a few natural follow-up questions you can tap to continue the thread.</li>
+        <li><strong>Multi-turn within a session.</strong> Conversations carry context inside one Ask session — "tell me more about that" works. Closing Ask clears history (by design — there's no persisted Ask log).</li>
+        <li><strong>Siri.</strong> "Hey Siri, ask Postcard what I said about the offsite" works without opening the app.</li>
+      </ul>
+      <p>Free tier: <strong>3 questions per rolling 7-day window.</strong> Postcard Pro: unlimited.</p>
+      <p><em>Tip:</em> the one-tap voice Ask shortcut on the Today tab wordmark is the fastest path — tap it, speak your question, get an answer without ever typing.</p>
 
       <h2>Apple Watch</h2>
       <p>The Watch app is built for capture-first.</p>
       <ul>
-        <li><strong>Tap the mic</strong> on the Watch face to record. Long-press to start an <strong>Echo</strong> — a rolling buffer you can bookmark retroactively.</li>
-        <li><strong>Action Button</strong> on Apple Watch Ultra and <strong>Double-Tap</strong> on Series 9 and later trigger a capture without raising the wrist.</li>
-        <li><strong>Complications</strong> for every face shape — tap-to-record corner, today-count rectangular, and a rich complication with the latest summary snippet.</li>
-        <li><strong>Smart Stack widget</strong> suggests capturing on quiet days, when your timeline is empty in the afternoon.</li>
-        <li><strong>Workout-tied prompt</strong> (Pro): when you end a workout, Postcard nudges you to capture a thought while it's still fresh.</li>
-        <li><strong>Today preview list</strong> (Pro): scroll the last few moments and play their audio from the wrist.</li>
+        <li><strong>Tap the mic</strong> on the Watch home screen to record a quick moment, stored locally and synced to your iPhone as soon as both devices are in range.</li>
+        <li><strong>Long-press the mic → Echo</strong> (Pro) starts an Echo session on the Watch — same rolling-30s bookmark pattern as on iPhone, kept entirely on the wrist.</li>
+        <li><strong>Action Button</strong> on Apple Watch Ultra: configure it in the Watch's Settings → Action Button → pick the Postcard capture action. One press starts a recording without needing to open the app.</li>
+        <li><strong>Double-Tap</strong> on Apple Watch Series 9 and later: when Postcard is on screen (or in a complication), Double-Tap starts a recording. Configure it in the Watch's Settings → Gestures.</li>
+        <li><strong>Complications.</strong> Add the "Capture" complication to your watch face for one-tap recording from any face shape. Pro users also get a rich "Recent moment" complication that shows the latest summary snippet.</li>
+        <li><strong>Smart Stack widget.</strong> A "Quiet day" widget surfaces on the Smart Stack when your timeline is empty in the afternoon, nudging you to capture.</li>
+        <li><strong>Post-workout prompt</strong> (Pro): when you end a HealthKit workout on the Watch, Postcard pings you a few minutes later to capture how it went.</li>
+        <li><strong>Today preview list</strong> (Pro): scroll your recent moments on the wrist and tap to play their audio without reaching for the phone.</li>
       </ul>
-      <p>Recordings made on the Watch transfer to the paired iPhone via WatchConnectivity as soon as the two devices are in range — no internet round-trip.</p>
+      <p><em>Tip:</em> Watch recordings transfer to the paired iPhone over WatchConnectivity as soon as the two devices are in range — no internet round-trip, no iCloud staging.</p>
 
-      <h2>Postcards (sharing)</h2>
-      <p>A "postcard" is a moment packaged into a beautifully rendered card you can send via iMessage. Pick what's included — voice, photo, place, transcript — and choose a theme. The fastest way: open Postcard inside iMessage from the app drawer, tap a moment, hit Insert.</p>
-      <p>Recipients with Postcard installed see a rich preview bubble and can save the postcard into their own timeline. Recipients without Postcard get a Quick Look preview of the audio postcard and a friendly nudge to install. No servers in the loop — Apple's iMessage handles delivery, and the bundle file is self-contained.</p>
-      <p>Free tier: 3 sends per calendar month. Postcard Pro: unlimited sends. <strong>Receiving postcards is always free</strong>.</p>
-
-      <h2>Notifications</h2>
-      <p>Postcard sends only local notifications — there is no APNs server, no third party, no "marketing pushes." Everything fires from on-device rules.</p>
-      <p><strong>Free:</strong></p>
+      <h2>Sharing</h2>
+      <p>From any moment, tap <strong>Share</strong> (bottom-left of the action bar) to bring up the share menu. There are five share variants — each one packages the moment differently:</p>
       <ul>
-        <li><em>On this day</em> — surfaces an old moment from a week, month, or year ago.</li>
-        <li><em>Search by meaning is ready</em> — fires once after the first few moments index.</li>
-        <li><em>Gentle re-engagement</em> — at most once a week, only after several days quiet.</li>
+        <li><strong>Send to a friend ✨</strong> — the fastest path to iMessage. Postcard renders the moment as a beautiful image (theme-aware) and opens Messages.app with the postcard image pre-attached. One tap of the blue arrow and it's sent. Image only — no audio.</li>
+        <li><strong>Postcard</strong> — the same rendered postcard image, but routed through the standard iOS Share Sheet so you can send it anywhere: AirDrop, Mail, save to Photos, post to social, etc.</li>
+        <li><strong>Postcard file (with audio)</strong> — exports a self-contained <code>.postcard</code> bundle that includes the audio, photo, transcript, sender name, and place. Recipients with Postcard installed get a rich Quick Look preview and a one-tap "Open in Postcard" to save it into their own timeline. Recipients without the app see a Quick Look preview and a friendly install link. This option is hidden for moments that don't have audio.</li>
+        <li><strong>Audio recording</strong> — exports the raw audio file (m4a). Useful for transcription pipelines or just keeping a copy.</li>
+        <li><strong>Text summary</strong> — copies/shares the one-line AI summary as plain text.</li>
+        <li><strong>Full transcript</strong> — copies/shares the entire transcript as plain text.</li>
       </ul>
-      <p><strong>Pro:</strong></p>
-      <ul>
-        <li><em>Post-workout</em> — a HealthKit observer on the Watch nudges you a few minutes after a workout ends.</li>
-        <li><em>Post-meeting</em> — fires a few minutes after a calendar event ends.</li>
-        <li><em>End-of-day reflection</em> — fires at a time you pick (default 9pm).</li>
-        <li><em>Place arrival</em> — geofenced prompts when you arrive at a saved place (up to 20 places, 75–500m radius).</li>
-      </ul>
-      <p>Every type has its own toggle in Settings, and each requests its permission only when you turn it on.</p>
+      <p><strong>Sending postcards from the iMessage app drawer.</strong> Postcard also installs as a native iMessage app. Inside any thread, tap the apps icon → Postcard → pick a recent moment → Insert. The recipient sees the postcard as a rich bubble in the thread.</p>
+      <p><strong>Free vs. Pro on sharing.</strong> Sharing the image variants (Send to a friend, Postcard, Audio recording, Text summary, Full transcript) is unlimited on the free tier. Sharing the full audio bundle (<em>Postcard file (with audio)</em> and the iMessage extension) is capped at <strong>10 sends per calendar month</strong> on free, unlimited on Pro. <strong>Receiving postcards is always free for everyone</strong> — that's the viral hook.</p>
+      <p><em>Tip:</em> Apple's iMessage handles delivery end-to-end — there are no Postcard servers in the loop. The bundle file is self-contained, and we don't see who you sent it to.</p>
 
       <h2>Themes</h2>
-      <p>Postcards render against a theme. The default <em>Cream &amp; Persimmon</em> is free; Postcard Pro adds <em>Slate</em> (cool, editorial), <em>Night</em> (true dark), <em>Forest</em> (earthy), <em>Paper</em> (warm classic), and <em>Custom</em> (your own photo as a faint backdrop).</p>
-
-      <h2>Postcard Pro</h2>
-      <p>Pro is a one-time lifetime purchase (not a subscription). It unlocks:</p>
+      <p>Postcards render against a theme. The default <em>Cream &amp; Persimmon</em> is free. Postcard Pro unlocks five more:</p>
       <ul>
-        <li>Unlimited Ask (the free weekly preview turns into no cap).</li>
-        <li>Semantic / meaning-based search.</li>
-        <li>Photo attachments on moments.</li>
-        <li>Send a moment to Reminders or to Calendar (one-tap from the moment detail).</li>
-        <li>Unlimited Postcard sends.</li>
-        <li>All postcard themes beyond Cream &amp; Persimmon.</li>
-        <li>Smart prompts — the four Pro notifications listed above (post-workout, post-meeting, end-of-day, place arrival).</li>
-        <li>Watch extras — the Today preview list and the rich complication.</li>
+        <li><strong>Slate</strong> — cool, neutral, editorial.</li>
+        <li><strong>Night</strong> — true dark, high-contrast.</li>
+        <li><strong>Forest</strong> — earthy, mossy, grounded.</li>
+        <li><strong>Paper</strong> — clean, warm, classic.</li>
+        <li><strong>Custom</strong> — your own photo as a faint backdrop behind the text.</li>
       </ul>
-      <p>The free tier is genuinely useful. Pro is for people who use Postcard daily and want the long-tail features.</p>
+      <p><em>How to change:</em> Settings → Postcard → Theme. The chosen theme applies to all shared postcards until you change it.</p>
+
+      <h2>Notifications</h2>
+      <p>Postcard sends only <strong>local</strong> notifications — there is no APNs server, no third party, no "marketing pushes." Every notification fires from on-device rules. Each type has its own toggle in Settings, and each requests its permission only the first time you turn it on.</p>
+      <p><strong>Free tier:</strong></p>
+      <ul>
+        <li><em>On this day</em> — surfaces a moment from a week, month, or year ago at a time you pick. Settings → Notifications → On this day.</li>
+        <li><em>Search by meaning is ready</em> — fires once, automatically, after the semantic index finishes building.</li>
+        <li><em>Gentle reminders</em> — at most once a week, only after several days quiet. A soft "still here?" nudge.</li>
+      </ul>
+      <p><strong>Postcard Pro — Smart prompts:</strong></p>
+      <ul>
+        <li><em>End-of-day reflection</em> — fires at a time you pick (default 9 pm). Settings → Notifications → End-of-day reflection.</li>
+        <li><em>Post-meeting</em> — a few minutes after a calendar event ends, nudges you to capture takeaways while they're fresh.</li>
+        <li><em>Post-workout</em> — a HealthKit observer on the Watch nudges you a few minutes after a workout ends.</li>
+        <li><em>Place prompts</em> — geofenced nudges when you arrive at a saved place (Home, your office, a favorite café). Up to 20 places, with a 75–500 m radius each. Settings → Notifications → Place prompts → Manage places.</li>
+      </ul>
+      <p><em>Tip:</em> the master "Notifications" toggle at the top of the section disables everything in one tap if you ever want quiet, without losing your per-type preferences.</p>
 
       <h2>Privacy</h2>
-      <p>Postcard has no servers. Recordings, transcripts, summaries, search, and Ask all run on the device. There's no analytics SDK, no third-party tracker, no telemetry. The only network call the app makes is to forward the feedback you type in Settings — to the developer's inbox, and only when you tap Send.</p>
-      <p>Per-moment privacy controls let you mark any capture private, and a "new moments are private" master toggle makes every future capture private by default. The full policy is at <a href="privacy">/postcard/privacy</a>.</p>
+      <p>Postcard has no servers. Recordings, transcripts, summaries, search, Ask answers, and notifications all run on the device. There's no analytics SDK, no third-party tracker, no telemetry, no iCloud sync of moment content. The only network call the app makes is to forward the feedback you type in Settings — to the developer's inbox, only when you tap Send.</p>
+      <p>Per-moment privacy controls (⋯ → Mark private) hide a moment from Search and Ask. The <em>"New moments are private"</em> master toggle in Settings → Privacy makes every future capture private by default.</p>
+      <p>For sharing, when you share a postcard you choose what goes in — audio, photo, place, transcript — through the share variants above. The full policy is at <a href="privacy">/postcard/privacy</a>.</p>
+      <p><em>Tip:</em> Settings → Privacy → "Ask sees received postcards" controls whether postcards shared <em>to</em> you can be retrieved by Ask. Default off.</p>
+
+      <h2>Postcard Pro</h2>
+      <p>Pro is a one-time lifetime purchase — not a subscription. It unlocks:</p>
+      <ul>
+        <li><strong>Unlimited Ask.</strong> The free 3-per-week preview turns into no cap.</li>
+        <li><strong>Search by meaning.</strong> Semantic, on-device.</li>
+        <li><strong>Photo attachments on moments.</strong></li>
+        <li><strong>Add to Reminders &amp; Add to Calendar.</strong> One-tap from a moment's action bar.</li>
+        <li><strong>Smart prompts.</strong> End-of-day reflection, Post-meeting, Post-workout, Place prompts.</li>
+        <li><strong>All postcard themes.</strong> Slate, Night, Forest, Paper, Custom — plus the default Cream &amp; Persimmon.</li>
+        <li><strong>Unlimited audio sharing.</strong> No monthly cap on <em>Postcard file (with audio)</em> sends.</li>
+        <li><strong>Watch Echo.</strong> Long-press the mic on the Watch for a rolling-buffer Echo session.</li>
+        <li><strong>Watch extras.</strong> Today preview list (scroll recent moments on the wrist) and the rich "Recent moment" complication.</li>
+      </ul>
+      <p>The free tier is genuinely useful — Pro is for people who use Postcard daily and want the long-tail features.</p>
+      <p><em>How to upgrade:</em> Settings → Postcard Pro → tap the Upgrade button. Purchases restore via the same screen on a new device.</p>
 
       <h2>Feedback</h2>
-      <p>Settings → Send feedback opens a short form: type, message, send. Everything you type goes straight to the developer's inbox. Useful especially for translation fixes while the localization rollout is fresh.</p>
+      <p>Settings → Send feedback opens a short form: pick a category, type a message, tap send. Everything goes straight to the developer's inbox — useful especially for translation tweaks while the localization rollout is fresh.</p>
 
       <h2>Languages</h2>
-      <p>Postcard ships in 10 languages: English, Spanish, French, German, Italian, Portuguese (Brazil), Japanese, Korean, Simplified Chinese, and Vietnamese. Transcription and on-device AI work in any language Apple Intelligence supports on your device.</p>
+      <p>Postcard ships fully translated in 10 languages: English, Spanish, French, German, Italian, Portuguese (Brazil), Japanese, Korean, Simplified Chinese, and Vietnamese. Transcription and on-device AI work in any language Apple Intelligence supports on your device.</p>
+      <p><em>Tip:</em> Postcard follows your iOS system language. To override just for Postcard, use iOS Settings → Postcard → Language.</p>
 
       <h2>Compatibility</h2>
-      <p>iPhone running iOS 26.0 or later. Apple Watch running watchOS 11.0 or later. The Ask tab and on-device caption generation require a device that supports Apple Intelligence with the feature enabled in iOS Settings.</p>
+      <p>iPhone running <strong>iOS 26.0</strong> or later. Apple Watch running <strong>watchOS 11.0</strong> or later. Ask and on-device captions require a device that supports <strong>Apple Intelligence</strong>, with the feature enabled in iOS Settings → Apple Intelligence &amp; Siri.</p>
+      <p>Postcard runs on iPad in iPhone-compatibility mode — a dedicated iPad layout is on the roadmap but not in 1.0.</p>
     </div>
   </article>
 
