@@ -8,7 +8,12 @@ Umbrella site for Greg Wolny's apps. Hosted on GitHub Pages — every push to `m
 .
 ├── index.html              # umbrella homepage
 ├── styles.css              # umbrella styles
-└── postcard/               # Postcard landing + legal pages
+├── postcard/               # Postcard landing + legal pages
+│   ├── index.html
+│   ├── privacy.html
+│   ├── support.html
+│   └── styles.css
+└── mimic/                  # Mimic landing + legal pages
     ├── index.html
     ├── privacy.html
     ├── support.html
@@ -19,8 +24,11 @@ URL map:
 
 - `https://greg-wolny.github.io/` — apps hub
 - `https://greg-wolny.github.io/postcard/` — Postcard landing
-- `https://greg-wolny.github.io/postcard/privacy` — privacy policy (App Store metadata URL)
-- `https://greg-wolny.github.io/postcard/support` — support page (App Store metadata URL)
+- `https://greg-wolny.github.io/postcard/privacy` — Postcard privacy policy (App Store metadata URL)
+- `https://greg-wolny.github.io/postcard/support` — Postcard support page (App Store metadata URL)
+- `https://greg-wolny.github.io/mimic/` — Mimic landing
+- `https://greg-wolny.github.io/mimic/privacy` — Mimic privacy policy (App Store metadata URL)
+- `https://greg-wolny.github.io/mimic/support` — Mimic support page (App Store metadata URL)
 
 Adding a new app: create a folder `<app-name>/` with its own `index.html` + supporting pages. Link it from the umbrella `index.html`.
 

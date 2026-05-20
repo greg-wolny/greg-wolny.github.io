@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mimic — Privacy Policy</title>
+  <meta name="description" content="How Mimic handles your voice data. Short answer: it stays on your device.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/mimic/">
+        <svg class="glyph-sm" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 32 Q12 24 18 32 Q24 40 30 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M34 32 Q40 20 46 32 Q52 44 58 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span>Mimic</span>
+      </a>
+    </div>
+  </header>
+
+  <article class="doc">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective 2026-05-20. Last updated 2026-05-20.</p>
+
+      <div class="summary">
+        <p>Mimic is built so your voice — original or cloned — stays on your iPhone. We do not run servers, we do not collect analytics, and we do not include any third-party tracking or advertising SDKs.</p>
+      </div>
+
+      <h2>What stays on your device</h2>
+      <p>Everything Mimic captures or generates lives in the app's local storage on your iPhone. That includes:</p>
+      <ul>
+        <li><strong>Voice recordings</strong> — both the source audio you record into Mimic and any converted output saved in the Recordings tab.</li>
+        <li><strong>Voice avatars and cloned embeddings</strong> — when you clone a voice, Mimic extracts a small mathematical fingerprint (a 256-number speaker embedding) from your sample and stores it locally. The original recording stays local too; you can delete either at any time from Settings.</li>
+        <li><strong>Voice conversion</strong> — both live (Performer Mode) and offline conversion run on-device through Core ML on Apple's Neural Engine. No audio is uploaded for processing.</li>
+        <li><strong>Pro entitlement</strong> — your purchase status is stored locally and verified through Apple's StoreKit. Mimic does not maintain its own user account system.</li>
+      </ul>
+
+      <h2>Permissions Mimic may request</h2>
+      <p>Mimic asks for permissions only at the moment you opt into a feature that needs them. You can revoke any of them in iOS Settings at any time.</p>
+      <ul>
+        <li><strong>Microphone</strong> — to record your voice in Performer Mode and for cloning.</li>
+        <li><strong>Notifications</strong> — when granted, Mimic schedules local reminders such as a heads-up before your Pro trial ends. No remote push servers are used.</li>
+      </ul>
+      <p>That is the entire permission surface. Mimic does not request Photos, Contacts, Location, Calendar, HealthKit, Speech Recognition, or any other capability.</p>
+
+      <h2>What Mimic does <em>not</em> do</h2>
+      <ul>
+        <li>We do not operate any servers or backends. Mimic ships without one.</li>
+        <li>We do not collect analytics or telemetry of any kind.</li>
+        <li>We do not include third-party SDKs for advertising, tracking, attribution, crash reporting, or social media.</li>
+        <li>We do not upload, transmit, share, or store your recordings, your cloned voices, or your speaker embeddings anywhere outside your device.</li>
+        <li>We do not sell, share, or rent any data, because we have no data to sell.</li>
+      </ul>
+
+      <h2>On-device machine learning</h2>
+      <p>Mimic's voice cloning uses a Core ML adaptation of the open-source OpenVoice v2 model. Both the speaker-embedding extractor and the voice converter run locally on your iPhone's Neural Engine. No part of the model talks to the network, and no inference output leaves the device unless you explicitly share it through iOS's share sheet.</p>
+      <p>The first launch may download additional Apple-provided audio frameworks the OS uses on-device; these are managed by iOS and not by Mimic.</p>
+
+      <h2>Sharing what you create</h2>
+      <p>When you tap the share button on a converted recording, iOS opens its standard share sheet. The audio file is handed off only to the destination you pick (Messages, Mail, AirDrop, Files, etc.). Mimic itself does not see or relay the content of the share.</p>
+
+      <h2>Purchases</h2>
+      <p>Mimic Pro is sold through Apple's StoreKit as either a monthly subscription or a one-time lifetime purchase, with a 14-day free trial. Apple processes the transaction; Mimic receives only the entitlement status and never sees your payment details. To cancel a subscription, use the Subscriptions section of your Apple ID in iOS Settings.</p>
+
+      <h2>Acceptable use</h2>
+      <p>Mimic is intended for personal creative use — performing, prank-calling friends who are in on the joke, voicing characters, accessibility, and similar. Using Mimic to impersonate someone without their consent, commit fraud, harass another person, or produce non-consensual sexual content is prohibited by Mimic's terms and likely illegal in your jurisdiction. The fact that Mimic runs entirely on-device does not change this.</p>
+
+      <h2>Children's privacy</h2>
+      <p>Mimic is not directed at children under 13 and does not knowingly collect personal information from them. Because Mimic does not collect personal information from anyone, this is largely moot.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If Mimic ever changes how it handles data — for example, if a future version adds optional cloud sync — we will update this page, bump the effective date above, and surface the change inside the app before it takes effect.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or concerns? Email <a href="mailto:gwolny@me.com">gwolny@me.com</a>.</p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="/mimic/">Home</a>
+        <a href="support">Support</a>
+      </nav>
+      <span>&copy; 2026 Greg Wolny.</span>
+    </div>
+  </footer>
+</body>
+</html>
