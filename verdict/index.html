@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verdict — AI image detector for iPhone</title>
+  <meta name="description" content="Verdict tells you whether a photo was generated or manipulated by AI. Four forensic checks, a clear score, and everything runs on your iPhone. No account, no uploads.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/verdict/">
+        <svg class="glyph-sm" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M32 6 L54 14 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V14 Z" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"/>
+          <path d="M23 32 l7 7 l12 -15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>Verdict</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <svg class="glyph-lg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32 6 L54 14 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V14 Z" stroke="var(--brand)" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+        <path d="M23 32 l7 7 l12 -15" stroke="var(--brand)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h1>Real photo, or AI?</h1>
+      <p class="tagline">Verdict tells you whether an image was generated or manipulated by AI — in seconds, entirely on your iPhone.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2>What it does</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Four checks, one score</h3>
+          <p>Verdict runs four independent forensic analyzers on every image — a neural-network model, sensor-noise analysis, Error Level Analysis, and metadata inspection — then combines them into a single 0–100 score with a plain-language verdict.</p>
+        </div>
+        <div class="feature">
+          <h3>Check from anywhere</h3>
+          <p>Pick a photo from your library, or tap Share on any image in Photos, Safari, or Messages and choose Verdict. The result comes back in seconds, with a breakdown of what each check found.</p>
+        </div>
+        <div class="feature">
+          <h3>Private by design</h3>
+          <p>Analysis runs entirely on your device using Core ML and ONNX Runtime. Your images are never uploaded to a server, never stored by us, and never shared. Verdict has no account system and no analytics.</p>
+        </div>
+        <div class="feature">
+          <h3>Honest results</h3>
+          <p>AI generators change fast, and no detector is perfect. Verdict shows you the evidence behind its score so you can weigh it with your own judgment — a strong signal, not a rubber stamp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-callout">
+    <div class="container">
+      <h2>Your photos never leave your phone.</h2>
+      <p>Every analyzer — the AI model, noise, ELA, and metadata checks — runs on-device. Verdict ships without a backend, because it doesn't need one.</p>
+      <p>No analytics. No third-party SDKs. No tracking. <a href="privacy">Read the policy</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="privacy">Privacy</a>
+        <a href="support">Support</a>
+      </nav>
+      <span>&copy; 2026 Greg Wolny.</span>
+    </div>
+  </footer>
+</body>
+</html>
