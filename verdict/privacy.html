@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Verdict — Privacy Policy</title>
-  <meta name="description" content="How Verdict handles your images. Short answer: they stay on your device.">
+  <meta name="description" content="How Verdict handles your photos and videos. Short answer: they stay on your device.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,17 +23,18 @@
   <article class="doc">
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p class="effective">Effective 2026-07-07. Last updated 2026-07-07.</p>
+      <p class="effective">Effective 2026-07-16. Last updated 2026-07-16.</p>
 
       <div class="summary">
-        <p>Verdict analyzes your images on your iPhone. We do not run servers, we do not collect analytics, and we do not include any third-party tracking or advertising SDKs. Your photos are not uploaded to us.</p>
+        <p>Verdict analyzes your photos and videos on your iPhone. We do not run servers, we do not collect analytics, and we do not include any third-party tracking or advertising SDKs. Your photos and videos are not uploaded to us.</p>
       </div>
 
       <h2>What stays on your device</h2>
-      <p>Verdict is a photo-analysis tool. When you analyze an image, everything happens locally on your iPhone:</p>
+      <p>Verdict is a photo- and video-analysis tool. When you analyze something, everything happens locally on your iPhone:</p>
       <ul>
-        <li><strong>The image you check</strong> — read into memory, analyzed on-device, and discarded when you're done. Verdict does not maintain a library or history of the images you scan.</li>
-        <li><strong>The AI-detection model</strong> — a neural network bundled inside the app. Inference runs locally through Core ML and ONNX Runtime. No image is uploaded for processing.</li>
+        <li><strong>The photo or video you check</strong> — read into memory and analyzed on-device. Video is sampled into frames that are analyzed and then discarded; the full clip is never copied off your device.</li>
+        <li><strong>Your scan history</strong> — Verdict keeps a history of your past scans, stored only on your iPhone. Each entry holds a small thumbnail (for video, a few sampled frames) plus the score and verdict — never the original full-resolution file. You can clear this history at any time from within the app, and it is never uploaded anywhere.</li>
+        <li><strong>The AI-detection model</strong> — a neural network bundled inside the app. Inference runs locally through ONNX Runtime. Nothing you scan is uploaded for processing.</li>
         <li><strong>The forensic checks</strong> — noise analysis, Error Level Analysis, and metadata (EXIF) inspection all run in the app, on your device.</li>
       </ul>
 
@@ -42,25 +43,28 @@
       <p>If you share a <strong>web link</strong> rather than an image file, the extension downloads the image at that address so it can be analyzed on-device. That request goes to the website hosting the image (the same as opening the link in a browser); it does not route through any Verdict server, and none of your data is attached to it.</p>
 
       <h2>Permissions Verdict may request</h2>
-      <p>Verdict is deliberately minimal. It uses Apple's system photo picker, which lets you choose a single image without granting access to your whole photo library. Verdict does not request Microphone, Location, Contacts, Calendar, HealthKit, or Photo Library write access.</p>
+      <p>Verdict is deliberately minimal. It uses Apple's system photo picker, which lets you choose a single photo or video without granting access to your whole photo library. Verdict may also ask permission to send notifications (for example, a heads-up before a free trial ends); this is optional and you can decline. Verdict does not request Microphone, Location, Contacts, Calendar, HealthKit, or Photo Library write access.</p>
 
       <h2>What Verdict does <em>not</em> do</h2>
       <ul>
-        <li>We do not operate any servers or backends. Verdict ships without one.</li>
+        <li>Analysis needs no backend — it runs entirely on your device. The only time Verdict contacts a server of ours is if you choose to send feedback (see below).</li>
         <li>We do not collect analytics or telemetry of any kind.</li>
         <li>We do not include third-party SDKs for advertising, tracking, attribution, crash reporting, or social media.</li>
-        <li>We do not upload, transmit, store, or share the images you analyze.</li>
+        <li>We do not upload, transmit, store, or share the photos or videos you analyze.</li>
         <li>We do not sell, share, or rent any data, because we have no data to sell.</li>
       </ul>
 
+      <h2>Sending feedback</h2>
+      <p>Verdict has an optional in-app feedback form. If you choose to use it, the message you write is sent to our feedback relay along with basic technical details that help us act on it — your app version, iOS version, device model, and system language. This is the only feature that transmits anything off your device, it only happens when you tap Send, and it never includes the photos or videos you've analyzed. If you'd rather not use the form, you can email us instead.</p>
+
       <h2>On-device machine learning</h2>
-      <p>Verdict's AI-detection model is a Swin Transformer image classifier that runs locally on your iPhone through ONNX Runtime. It does not talk to the network, and no analysis result leaves the device unless you choose to share it yourself.</p>
+      <p>Verdict's AI-detection model is a SigLIP image classifier (an open-source model released under the Apache 2.0 license) that runs locally on your iPhone through ONNX Runtime. It does not talk to the network, and no analysis result leaves the device unless you choose to share it yourself.</p>
 
       <h2>Accuracy and intended use</h2>
       <p>Verdict is a detection aid, not a guarantee of authenticity. AI image generators evolve quickly and no detector — including Verdict — is correct 100% of the time. Treat Verdict's score as one strong signal to weigh alongside your own judgment, not as definitive proof that an image is real or fake.</p>
 
       <h2>Purchases</h2>
-      <p>Verdict is free. If a future version introduces optional paid features, they would be sold through Apple's StoreKit; Apple would process any transaction and Verdict would receive only the entitlement status, never your payment details. This page would be updated before any such change takes effect.</p>
+      <p>Verdict is free to download, with an optional Verdict Pro upgrade (a monthly subscription or a one-time lifetime purchase) that removes the daily scan limit and unlocks the full evidence breakdown. Purchases are handled entirely by Apple's StoreKit: Apple processes the transaction and Verdict receives only your entitlement status, never your payment details. We do not operate any account system.</p>
 
       <h2>Children's privacy</h2>
       <p>Verdict is not directed at children under 13 and does not knowingly collect personal information from them. Because Verdict does not collect personal information from anyone, this is largely moot.</p>
