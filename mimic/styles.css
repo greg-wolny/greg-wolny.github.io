@@ -216,3 +216,24 @@ article.doc .summary p { margin: 0; color: var(--text-secondary); }
   section.hero h1 { font-size: 2.25rem; }
   section.hero .tagline { font-size: 1.0625rem; }
 }
+
+/* Hero: the canonical one-sentence definition runs longer than the old
+   tagline, so give it room rather than breaking it across many short lines. */
+section.hero .tagline { max-width: 46ch; }
+
+/* App Store call to action under the hero tagline. */
+.cta {
+  margin: 0 0 0.5rem;
+}
+.cta a {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.cta a:hover { opacity: 0.85; }
