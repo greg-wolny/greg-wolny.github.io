@@ -101,3 +101,50 @@ footer {
   color: var(--muted);
   font-size: 0.875rem;
 }
+
+/* Per-app entries on the index: name, one-sentence definition, links. */
+.app-list li {
+  padding: 1.5rem 0;
+}
+
+.app-head {
+  display: block;
+  padding: 0;
+  text-decoration: none;
+  color: var(--text);
+  transition: opacity 0.15s ease;
+}
+
+.app-head:hover { opacity: 0.65; }
+
+.app-desc {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin: 0.5rem 0 0.75rem;
+  max-width: 58ch;
+}
+
+.app-links {
+  margin: 0;
+  font-size: 0.875rem;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.app-links a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 1px;
+}
+
+.app-links a:hover { opacity: 0.65; }
+
+.note {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin: 0 0 2.5rem;
+  max-width: 58ch;
+}
+
+.note a { color: var(--text); }

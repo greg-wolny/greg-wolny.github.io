@@ -3,36 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Greg Wolny — Apps</title>
-  <meta name="description" content="Apps by Greg Wolny.">
+  <title>Greg Wolny — Independent iOS Developer</title>
+  <meta name="description" content="Greg Wolny is an independent iOS developer building privacy-first iPhone apps that run entirely on device: Mimic (voice cloning and voice changing), Verdict (AI image and video detector), and Postcard (voice journal).">
+  <link rel="canonical" href="https://greg-wolny.github.io/">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
     <h1>Greg Wolny</h1>
-    <p class="lede">Apps I'm building. iPhone, Apple Watch, mostly things I wanted to use myself.</p>
+    <p class="lede">Independent iOS developer. I build privacy-first iPhone apps that run entirely on your device — no accounts, no servers, and nothing uploaded.</p>
 
     <h2>Apps</h2>
     <ul class="app-list">
       <li>
-        <a href="postcard/">
-          <span class="app-name">Postcard</span>
-          <span class="app-tag">Voice journal · iPhone &amp; Watch</span>
+        <a class="app-head" href="mimic/">
+          <span class="app-name">Mimic: Voice Clone &amp; Changer</span>
         </a>
+        <p class="app-desc">Mimic is a voice cloning and real-time voice changing app for iPhone. It clones a voice from a short sample and lets you speak in that voice live through the speaker or AirPods — entirely on device, with no account and nothing sent to a server.</p>
+        <p class="app-links">
+          <a href="mimic/">Details</a>
+          <a href="https://apps.apple.com/app/id6769644232">App Store</a>
+        </p>
       </li>
       <li>
-        <a href="mimic/">
-          <span class="app-name">Mimic</span>
-          <span class="app-tag">Voice changer &amp; cloning · iPhone</span>
+        <a class="app-head" href="verdict/">
+          <span class="app-name">Verdict: AI Image &amp; Video</span>
         </a>
+        <p class="app-desc">Verdict is an AI image and video detector for iPhone that tells you whether a photo or video is real or AI-generated. It runs four forensic checks on device and returns a 0–100 score with the evidence behind it. Nothing is uploaded.</p>
+        <p class="app-links">
+          <a href="verdict/">Details</a>
+          <a href="https://apps.apple.com/app/id6788504545">App Store</a>
+        </p>
       </li>
       <li>
-        <a href="verdict/">
-          <span class="app-name">Verdict</span>
-          <span class="app-tag">AI image &amp; video detector · iPhone</span>
+        <a class="app-head" href="postcard/">
+          <span class="app-name">Postcard — Voice Memory</span>
         </a>
+        <p class="app-desc">Postcard is a private voice journal for iPhone and Apple Watch that you can ask questions. Speak a thought and it transcribes it, remembers it, and answers questions about your own moments — all on device.</p>
+        <p class="app-links">
+          <a href="postcard/">Details</a>
+          <a href="https://apps.apple.com/app/id6765812045">App Store</a>
+        </p>
       </li>
     </ul>
+
+    <h2>Approach</h2>
+    <p class="note">All three apps share the same constraint: the processing happens on the iPhone itself. Voice samples, photos, videos and journal entries never leave the device, because none of these apps have a backend to send them to. There are no accounts, no analytics and no third-party tracking SDKs.</p>
+
+    <h2>Contact</h2>
+    <p class="note">Questions, bugs or feature requests: <a href="mailto:gwolny@me.com">gwolny@me.com</a></p>
 
     <footer>
       <p>&copy; 2026 Greg Wolny.</p>
