@@ -148,3 +148,22 @@ footer {
 }
 
 .note a { color: var(--text); }
+
+/* App Store icon beside each app name — the same mark users see on the
+   store and their home screen, which is the point: recognition. The PNG
+   carries the iOS squircle in its alpha, so no border-radius here. */
+/* `.app-list a` (0,1,1) sets space-between and outranks a bare `.app-head`
+   (0,1,0), which flung the name to the far right once an icon shared the
+   row. Match its specificity to win. */
+.app-list a.app-head {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  justify-content: flex-start;
+}
+.app-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: block;
+}

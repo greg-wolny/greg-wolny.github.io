@@ -62,7 +62,7 @@ header.top a.brand {
   font-size: 0.9375rem;
   letter-spacing: -0.005em;
 }
-header.top svg.glyph-sm {
+header.top .glyph-sm {
   width: 22px;
   height: 22px;
 }
@@ -315,3 +315,14 @@ article.doc .backlink {
   transition: opacity 0.15s ease;
 }
 .cta a:hover { opacity: 0.85; }
+
+/* Real App Store icon replaces the old line-art glyph. The PNG already
+   carries the iOS squircle in its alpha channel, so no border-radius here —
+   rounding it again would clip the corners twice. `display:block` is what
+   makes the hero rule's `margin: 0 auto` actually centre an <img>. */
+img.glyph-sm,
+img.glyph-lg {
+  display: block;
+  object-fit: contain;
+}
+img.glyph-sm { border-radius: 5px; }
