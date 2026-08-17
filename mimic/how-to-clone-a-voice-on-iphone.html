@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to clone a voice on an iPhone</title>
+  <meta name="description" content="A practical guide to voice cloning on iPhone: what a voice clone actually is, cloud versus on-device, how to record a sample that works, what the hardware needs to be, and the consent rules that apply before you clone anyone's voice.">
+  <link rel="canonical" href="https://greg-wolny.github.io/mimic/how-to-clone-a-voice-on-iphone">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mimic">
+  <meta property="og:title" content="How to clone a voice on an iPhone">
+  <meta property="og:description" content="A practical guide to voice cloning on iPhone: what a voice clone actually is, cloud versus on-device, how to record a sample that works, and the consent rules that apply.">
+  <meta property="og:url" content="https://greg-wolny.github.io/mimic/how-to-clone-a-voice-on-iphone">
+  <meta property="og:image" content="https://greg-wolny.github.io/mimic/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to clone a voice on an iPhone">
+  <meta name="twitter:description" content="A practical guide to voice cloning on iPhone: what a voice clone actually is, cloud versus on-device, how to record a sample that works, and the consent rules that apply.">
+  <meta name="twitter:image" content="https://greg-wolny.github.io/mimic/og.png">
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/mimic/">
+        <img class="glyph-sm" src="icon.png" alt="" width="22" height="22">
+        <span>Mimic</span>
+      </a>
+    </div>
+  </header>
+
+  <article class="doc">
+    <div class="container">
+      <p class="backlink"><a href="/mimic/">Mimic</a> → Guide</p>
+
+      <h1>How to clone a voice on an iPhone</h1>
+      <p class="effective">Last updated 17 August 2026</p>
+
+      <div class="answer">
+        <p><strong>You need three things: a clean voice sample of roughly 45 seconds, an app that builds a voice model from it, and permission from the person whose voice it is.</strong></p>
+        <p>The sample matters more than the app. A quiet room, a consistent distance from the microphone and natural connected speech will beat an expensive tool fed a noisy clip every time. Everything else — cloud or on-device, real-time or offline — is a trade-off you pick after that.</p>
+      </div>
+
+      <p>"Voice cloning" gets used for two different things, and the distinction decides which tool you want.</p>
+
+      <h2>Cloning versus text-to-speech</h2>
+
+      <p><strong>Text-to-speech</strong> takes typed text and reads it aloud in a target voice. You get a synthetic performance — the timing, emphasis and emotion come from the model's guess about how the sentence should sound.</p>
+
+      <p><strong>Voice conversion</strong> takes <em>your</em> speech and re-renders it in someone else's voice. You perform the line; the model swaps the timbre. Your timing, your emphasis, your laugh — someone else's vocal character.</p>
+
+      <p>For narration and dubbing, conversion usually sounds better, because human delivery is still hard to synthesise convincingly. For generating long passages you never want to perform yourself, text-to-speech wins. Most tools do one well and the other adequately.</p>
+
+      <p>What both need first is a <strong>speaker embedding</strong> — sometimes called a tone colour vector. That is a compact numerical description of what makes a voice that voice: vocal tract shape, pitch range, resonance, characteristic timbre. It is not a recording, and you cannot play it back or reconstruct the original audio from it. Building this from a sample is the "cloning" step; everything after is applying it.</p>
+
+      <h2>Cloud or on-device?</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th></th><th>Cloud service</th><th>On-device</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quality ceiling</td><td>Higher — no compute limit</td><td>Good, bounded by the phone</td></tr>
+            <tr><td>Your recording</td><td>Uploaded and stored on someone's server</td><td>Never leaves the phone</td></tr>
+            <tr><td>Works offline</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Real-time use</td><td>Round-trip latency</td><td>Possible — roughly a second</td></tr>
+            <tr><td>Account required</td><td>Almost always</td><td>Not necessarily</td></tr>
+            <tr><td>Hardware</td><td>Any phone</td><td>Recent chip only</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The honest summary: if you want the absolute best-sounding clone and do not mind uploading your voice, a cloud service will beat a phone. If you care that a recording of your voice — or your child's — is not sitting in a third party's storage indefinitely, on-device is the only version of this that actually guarantees that.</p>
+
+      <div class="note">
+        <p>Voice is biometric data in several jurisdictions, including under Illinois' BIPA and the EU's GDPR. "We delete it after 30 days" is a policy, not a technical guarantee. On-device processing is the only arrangement where the guarantee is structural — there is no server to send it to.</p>
+      </div>
+
+      <h2>How to record a sample that actually works</h2>
+
+      <p>This is where most bad clones come from, and it costs nothing to get right.</p>
+
+      <ol>
+        <li><strong>Find a quiet, soft room.</strong> Carpet, curtains, a sofa. Bathrooms and kitchens are the worst option — hard surfaces add reverb, and reverb is baked into the clone permanently.</li>
+        <li><strong>Hold the phone a consistent hand's width away.</strong> Moving closer and further mid-sample teaches the model an unstable voice.</li>
+        <li><strong>Read connected prose, not word lists.</strong> The model needs natural transitions between sounds. Reading a paragraph aloud gives it that; reciting isolated words does not.</li>
+        <li><strong>Cover the range of sounds.</strong> This is why phonetically balanced passages exist — the Rainbow Passage and the Harvard Sentences are public-domain texts written to include most English phonemes in a short read.</li>
+        <li><strong>Speak the way you normally speak.</strong> A performed "radio voice" clones a radio voice. If you want your own voice back, use it.</li>
+        <li><strong>Give it about 45 seconds.</strong> Beyond roughly a minute the returns flatten quickly; below about 20 seconds the timbre gets thin and unstable.</li>
+      </ol>
+
+      <p><strong>What to avoid:</strong> background music (it cannot be separated out and will be modelled as part of the voice), audio played back through a speaker and re-recorded, heavily compressed sources such as streamed video or a phone call, and any clip where two people talk over each other.</p>
+
+      <h2>What happens to the sample</h2>
+
+      <p>A typical on-device pipeline runs in two stages. A <strong>speaker encoder</strong> converts the sample into the embedding described above — a few hundred numbers, produced in well under a second on a recent chip. Then a <strong>conversion model</strong> takes incoming speech plus that embedding and re-synthesises the audio with the target timbre.</p>
+
+      <p>Several of the open models in this space descend from <strong>OpenVoice</strong>, an MIT-licensed research project, ported to Core ML to run on Apple's Neural Engine. Worth noting for accuracy: the Neural Engine is the hardware. It is not the same thing as Apple Intelligence, which is a separate set of system features.</p>
+
+      <h2>Real-time, or converting a recording</h2>
+
+      <p>Converting an existing recording is the easier case — the model can take as long as it needs. Real-time is harder: audio has to be captured, embedded, converted and played back continuously, and the delay between speaking and hearing yourself is what makes it usable or not.</p>
+
+      <p>Around a second of latency is workable when you are wearing headphones and performing. It is not workable for conversation, and no phone-based system is currently close to the sub-50-millisecond range that would feel immediate. Anyone promising conversational latency on a phone is describing something else.</p>
+
+      <p>Use headphones. Without them the converted output goes into the microphone and feeds back.</p>
+
+      <h2>Which iPhones can do this</h2>
+
+      <p>Neural voice conversion in real time needs a recent Neural Engine — in practice <strong>iPhone 15 Pro or newer</strong> (A17 Pro, A18, A19 and later). That is a throughput requirement, not an artificial one: the model has to run faster than speech arrives, continuously, without draining the battery.</p>
+
+      <p>Older iPhones can still run classic DSP voice effects — pitch shifting, formant shifting, ring modulation, reverb. Those are the Robot and Helium style effects, and they are genuinely useful, but they change the shape of a voice rather than reproducing a specific person's.</p>
+
+      <h2>Consent, and the rules that apply</h2>
+
+      <p>Clone your own voice freely. For anyone else's, get their clear permission first — and understand that this is not only an etiquette question.</p>
+
+      <ul>
+        <li><strong>Right of publicity.</strong> Many US states protect a person's voice as part of their identity. Tennessee's ELVIS Act explicitly covers voice; California and New York have their own regimes.</li>
+        <li><strong>Biometric privacy law.</strong> Illinois' BIPA treats voiceprints as biometric identifiers requiring written consent, and it allows individuals to sue directly.</li>
+        <li><strong>Fraud and impersonation.</strong> Using a cloned voice to deceive someone — particularly to obtain money or credentials — is straightforwardly illegal in most places, regardless of how the audio was made.</li>
+        <li><strong>Platform rules.</strong> Most major platforms now require synthetic media involving a real person's likeness to be disclosed, and remove it when it is not.</li>
+      </ul>
+
+      <p>The practical test that keeps you clear: <strong>would the person whose voice this is be comfortable seeing what you made?</strong> If you would not show them, do not publish it. Laws vary by jurisdiction and this is not legal advice — but consent, disclosure and not using someone's voice to deceive people cover almost every real case.</p>
+
+      <p>There is also a design answer to this. A tool that clones only from a live microphone recording — where the person has to be present, reading a script, right now — makes non-consensual cloning structurally awkward in a way that a tool accepting an uploaded clip never can.</p>
+
+      <h2>What voice cloning still cannot do</h2>
+
+      <ul>
+        <li><strong>Singing.</strong> Speech models handle pitch conservatively; sustained melodic notes generally fall apart.</li>
+        <li><strong>Accents and languages the sample never contained.</strong> The clone inherits the accent of the sample, not of the speaker's whole ability.</li>
+        <li><strong>Emotion you do not perform.</strong> In voice conversion, the feeling comes from your delivery. A flat read produces a flat clone.</li>
+        <li><strong>Fixing a bad sample.</strong> Noise, reverb and clipping are learned as part of the voice. There is no later step that removes them.</li>
+        <li><strong>Children's voices reliably.</strong> Higher fundamental frequencies sit at the edge of what most models were trained on.</li>
+      </ul>
+
+      <div class="app-box">
+        <h2>Doing this on an iPhone</h2>
+        <p><a href="/mimic/">Mimic</a> is a voice cloning and real-time voice changing app for iPhone that runs the whole pipeline on the device. You read a short script for 45 seconds, it builds a voice avatar on the phone, and you can then perform with that voice live through headphones or convert a recording.</p>
+        <p>Cloning is <strong>microphone-only by design</strong> — there is no way to import a downloaded clip, so the person being cloned has to be present and reading. The app also asks you to confirm you have permission before it will record a sample at all.</p>
+        <p>Fourteen voices ship with it: six free effects (Robot, Helium, Demon, Underwater, Whisper, Echo) that work on any supported iPhone, and eight designer voices that need Pro. Cloning and the designer voices require iPhone 15 Pro or newer, for the throughput reason above.</p>
+        <p>Nothing is uploaded. There is no account and no backend — recordings, embeddings and converted audio stay on the phone. Free to download; Mimic Pro is a monthly subscription or a one-time lifetime purchase, with a 14-day trial.</p>
+        <p class="cta"><a href="https://apps.apple.com/app/id6769644232">Download on the App Store</a></p>
+      </div>
+
+      <h2>Common questions</h2>
+
+      <h3>How long does a voice sample need to be?</h3>
+      <p>About 45 seconds of clean, connected speech is the practical sweet spot. Below roughly 20 seconds the clone tends to sound thin and unstable; past about a minute the improvement flattens out quickly. Sample quality matters far more than sample length — 30 clean seconds beats three noisy minutes.</p>
+
+      <h3>Can I clone a voice from a YouTube video or a voice note?</h3>
+      <p>Technically some tools accept any audio file, but there are two problems. Streamed and messaging audio is heavily compressed, and that compression is learned as part of the voice, so the clone sounds worse than a fresh recording. More importantly, using someone's voice without their permission may breach right-of-publicity or biometric privacy laws depending on where you are. Some apps, Mimic among them, only clone from a live microphone recording for exactly this reason.</p>
+
+      <h3>Does voice cloning work offline on iPhone?</h3>
+      <p>It can, if the app runs its models on the device rather than a server. On-device cloning uses Core ML on Apple's Neural Engine and works in airplane mode, with nothing uploaded. Most voice cloning services are cloud-based and require a connection and an account. Check whether the app has a backend at all — that is the difference that determines where your recording ends up.</p>
+
+      <h3>Which iPhone do I need for voice cloning?</h3>
+      <p>Neural voice conversion in real time needs iPhone 15 Pro or newer — A17 Pro, A18, A19 and later — because the model must run continuously faster than speech arrives. Older iPhones can still run classic DSP effects such as pitch and formant shifting, which alter a voice without reproducing a specific person's.</p>
+
+      <h3>Is voice cloning legal?</h3>
+      <p>Cloning your own voice is fine. Cloning someone else's without permission may breach right-of-publicity laws (Tennessee's ELVIS Act names voice explicitly) or biometric privacy laws such as Illinois' BIPA, and using a cloned voice to deceive someone is illegal in most jurisdictions regardless of how it was produced. Get clear consent, disclose synthetic audio when a real person's likeness is involved, and do not use it to mislead. This is not legal advice and the rules vary by jurisdiction.</p>
+
+      <h3>Why does my clone sound robotic or muffled?</h3>
+      <p>Almost always the sample. The usual culprits are room reverb from a hard-surfaced space, background music or noise, inconsistent distance from the microphone, or a source that had already been compressed. Those artefacts are learned as part of the voice and cannot be removed afterwards. Re-record in a soft, quiet room at a steady distance and the difference is usually dramatic.</p>
+
+      <h3>Can a cloned voice sing?</h3>
+      <p>Generally not well. Speech-focused models treat pitch conservatively and sustained melodic notes tend to break down. Singing voice conversion is a separate research area with its own models, and it is not what general voice cloning tools are built for.</p>
+
+      <h3>What is the difference between a voice changer and voice cloning?</h3>
+      <p>A voice changer applies signal processing — pitch shift, formant shift, reverb, modulation — to make a voice sound different. It does not know whose voice it is producing. Voice cloning builds a model of one specific person's vocal character and reproduces that. Changers run on any hardware; cloning needs a neural model and a recent chip.</p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="/mimic/">Mimic</a>
+        <a href="https://apps.apple.com/app/id6769644232">App Store</a>
+        <a href="privacy">Privacy</a>
+        <a href="support">Support</a>
+      </nav>
+      <span>&copy; 2026 Greg Wolny.</span>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to clone a voice on an iPhone",
+    "description": "A practical guide to voice cloning on iPhone: what a voice clone is, cloud versus on-device, how to record a sample that works, hardware requirements, and the consent rules that apply.",
+    "datePublished": "2026-08-17",
+    "dateModified": "2026-08-17",
+    "author": {
+      "@type": "Person",
+      "name": "Greg Wolny",
+      "url": "https://greg-wolny.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Greg Wolny",
+      "url": "https://greg-wolny.github.io/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://greg-wolny.github.io/mimic/how-to-clone-a-voice-on-iphone"
+    },
+    "about": [
+      { "@type": "Thing", "name": "Voice cloning" },
+      { "@type": "Thing", "name": "Voice conversion" },
+      { "@type": "Thing", "name": "On-device machine learning" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I clone a voice on an iPhone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You need a clean voice sample of roughly 45 seconds, an app that builds a voice model from it, and permission from the person whose voice it is. Record in a quiet, soft-furnished room at a consistent distance from the microphone, reading connected prose rather than word lists. The sample quality matters more than which app you use. On-device apps build the voice model on the phone itself, so the recording is never uploaded."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a voice sample need to be for cloning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About 45 seconds of clean, connected speech is the practical sweet spot. Below roughly 20 seconds the clone tends to sound thin and unstable, and past about a minute the improvement flattens out quickly. Sample quality matters far more than length: 30 clean seconds beats three noisy minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I clone a voice from a YouTube video or a voice note?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some tools accept any audio file, but streamed and messaging audio is heavily compressed and that compression is learned as part of the voice, so the clone sounds worse than a fresh recording. More importantly, using someone's voice without permission may breach right-of-publicity or biometric privacy laws depending on jurisdiction. Some apps only clone from a live microphone recording for this reason."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does voice cloning work offline on iPhone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can, if the app runs its models on the device rather than on a server. On-device cloning uses Core ML on Apple's Neural Engine and works in airplane mode with nothing uploaded. Most voice cloning services are cloud-based and require a connection and an account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which iPhone do I need for voice cloning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Real-time neural voice conversion needs iPhone 15 Pro or newer — A17 Pro, A18, A19 and later — because the model must run continuously faster than speech arrives. Older iPhones can still run classic DSP effects such as pitch and formant shifting, which alter a voice without reproducing a specific person's."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is voice cloning legal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cloning your own voice is fine. Cloning someone else's without permission may breach right-of-publicity laws, such as Tennessee's ELVIS Act which names voice explicitly, or biometric privacy laws such as Illinois' BIPA. Using a cloned voice to deceive someone is illegal in most jurisdictions regardless of how it was produced. Get clear consent, disclose synthetic audio involving a real person, and do not use it to mislead. This is not legal advice and rules vary by jurisdiction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my cloned voice sound robotic or muffled?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Almost always the sample. The usual causes are room reverb from hard surfaces, background music or noise, inconsistent distance from the microphone, or an already-compressed source. Those artefacts are learned as part of the voice and cannot be removed afterwards. Re-recording in a soft, quiet room at a steady distance usually makes a dramatic difference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between a voice changer and voice cloning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A voice changer applies signal processing such as pitch shift, formant shift and modulation to make a voice sound different, without knowing whose voice it is producing. Voice cloning builds a model of one specific person's vocal character and reproduces it. Changers run on any hardware; cloning needs a neural model and a recent chip."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
