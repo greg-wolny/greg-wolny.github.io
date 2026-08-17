@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to tell if an image is AI-generated</title>
+  <meta name="description" content="A practical guide to checking whether a photo or video is AI-generated: read the file's metadata, search for the image elsewhere, look for physical inconsistencies, and understand what automated detectors actually measure — and where each check fails.">
+  <link rel="canonical" href="https://greg-wolny.github.io/verdict/how-to-tell-if-an-image-is-ai-generated">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/verdict/">
+        <svg class="glyph-sm" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M32 6 L54 14 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V14 Z" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"/>
+          <path d="M23 32 l7 7 l12 -15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>Verdict</span>
+      </a>
+    </div>
+  </header>
+
+  <article class="doc">
+    <div class="container">
+      <p class="backlink"><a href="/verdict/">Verdict</a> → Guide</p>
+
+      <h1>How to tell if an image is AI-generated</h1>
+      <p class="effective">Last updated 17 August 2026</p>
+
+      <div class="answer">
+        <p><strong>No single tell proves an image is AI-generated.</strong> The reliable method is to stack four independent checks — the file's <strong>metadata</strong>, whether the image <strong>appears elsewhere online</strong>, <strong>physical consistency</strong> in light and reflections, and an <strong>automated detector</strong> that scores the pixels themselves — then weigh them together.</p>
+        <p>Any one of those checks can be fooled. All four agreeing rarely is. Treat the result as a probability, not a proof.</p>
+      </div>
+
+      <p>The visual giveaways people learned to look for in 2023 — six-fingered hands, garbled text on signs, melted jewellery — have largely been fixed by current image models. Advice built around them is now actively misleading: a clean pair of hands tells you almost nothing. What follows is what still works, in the order worth doing it.</p>
+
+      <h2>1. Read the file's metadata first</h2>
+
+      <p>This is the highest-value check and almost nobody does it. A photo taken by a real camera carries EXIF metadata written by the device: camera make and model, lens, focal length, aperture, shutter speed, ISO, and often GPS coordinates. Image generators do not produce those fields, because there was no sensor and no exposure.</p>
+
+      <p>You can check it without installing anything:</p>
+
+      <ul>
+        <li><strong>iPhone:</strong> open the image in Photos, swipe up or tap the ⓘ button. A camera original shows the device name, lens and exposure values.</li>
+        <li><strong>Mac:</strong> open in Preview, then Tools → Show Inspector → the ⓘ tab → Exif.</li>
+        <li><strong>Windows:</strong> right-click the file → Properties → Details.</li>
+      </ul>
+
+      <p><strong>Present, coherent camera metadata is strong evidence the image is a real photograph.</strong> The fields are also internally consistent in ways that are awkward to fake — the focal length matches the lens, the exposure triangle makes physical sense.</p>
+
+      <div class="note">
+        <p><strong>The critical asymmetry:</strong> missing metadata is <em>not</em> evidence of AI. Instagram, X, WhatsApp, Facebook, Discord and most messaging apps strip EXIF on upload for privacy reasons. Screenshots have no camera metadata by definition. So metadata that is present tells you a lot; metadata that is absent tells you almost nothing.</p>
+      </div>
+
+      <p>Be aware that EXIF fields are editable — anyone determined can write plausible camera data into a generated file. It is a strong signal, not a signature.</p>
+
+      <h2>2. Search for the image elsewhere</h2>
+
+      <p>Reverse image search answers a different question: not "was this generated?" but "where did this come from?" That is often the more useful answer.</p>
+
+      <ul>
+        <li>Google Lens, TinEye, Bing Visual Search and Yandex all accept an uploaded image.</li>
+        <li>If the image turns up in a stock library, a news archive, or a post from years before the current claim, you have your answer regardless of what any detector says.</li>
+        <li>If a supposedly newsworthy image appears <em>nowhere</em> else, that absence is itself informative. Real events of consequence get photographed more than once, from more than one angle.</li>
+      </ul>
+
+      <h2>3. Look for physical inconsistencies, not anatomical ones</h2>
+
+      <p>Generators model appearance, not physics. The artefacts that survive in current models are the ones that require a scene to be globally consistent:</p>
+
+      <ul>
+        <li><strong>Light direction.</strong> Do all the shadows fall consistently with a single light source? Mixed shadow directions in a scene with one obvious sun are hard to explain.</li>
+        <li><strong>Reflections.</strong> Mirrors, windows, water, sunglasses and eyes. Reflected content that does not correspond to the scene in front of it is a strong tell — reflection requires a model of geometry the generator does not have.</li>
+        <li><strong>Background text.</strong> Not the foreground signage models now render well, but small, out-of-focus, incidental text — spines of books, distant shopfronts, labels.</li>
+        <li><strong>Repetition.</strong> Crowds, foliage, brickwork, textiles. Look for the same element copy-pasted at slightly different scales.</li>
+        <li><strong>Where things meet.</strong> Hair against a background, fingers around an object, the join between a person and what they are holding or sitting on.</li>
+        <li><strong>Depth of field that does not match.</strong> Blur that varies without following a coherent focal plane.</li>
+      </ul>
+
+      <p>Zoom in. Most of these only become visible at 200–400%, and most people never zoom.</p>
+
+      <h2>4. Check for content credentials</h2>
+
+      <p>An increasing number of generators attach provenance data to their output — C2PA "Content Credentials", which record how a file was made and edited, and in some cases invisible watermarks embedded in the pixels themselves. Some camera manufacturers have begun signing files at capture for the same reason.</p>
+
+      <p>Where present, this is the single most authoritative signal available, because it is cryptographic rather than statistical. In practice coverage is still partial and the data is easily removed — screenshotting an image discards it entirely — so its presence is meaningful and its absence is not.</p>
+
+      <h2>5. Run a detector — and know what it is measuring</h2>
+
+      <p>Automated detectors combine several statistical signals. It is worth knowing that these signals differ enormously in quality, because a lot of published advice treats them as interchangeable.</p>
+
+      <p>The figures below are measured on Verdict's held-out validation set, reported as AUC — where 1.0 is a perfect separator and 0.5 is a coin flip:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Signal</th><th>What it measures</th><th>Measured AUC</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Neural model</td>
+              <td>A vision model trained to recognise the statistical fingerprint of generated imagery</td>
+              <td>0.96 <span style="white-space:nowrap">(0.87 without metadata)</span></td>
+            </tr>
+            <tr>
+              <td>Metadata</td>
+              <td>Presence and coherence of camera EXIF fields</td>
+              <td>0.92</td>
+            </tr>
+            <tr>
+              <td>Sensor noise</td>
+              <td>The characteristic noise floor a physical sensor leaves behind</td>
+              <td>~0.58</td>
+            </tr>
+            <tr>
+              <td>Error Level Analysis</td>
+              <td>Uneven JPEG compression artefacts across a re-saved image</td>
+              <td>0.57</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Two of those four are barely better than guessing.</strong> Error Level Analysis in particular is widely recommended online and, on this data, carries essentially no signal for the AI-versus-real question — it was designed to spot local re-saving in edited JPEGs, which is a different problem. Sensor-noise analysis is only marginally better once an image has been through social-media re-compression.</p>
+
+      <p>This matters if you are reading someone's ELA heat map and drawing conclusions from it. On modern generated images, those maps are close to noise.</p>
+
+      <div class="note">
+        <p>These numbers come from a small held-out set, so treat them as indicative rather than precise — the overall blended accuracy sits around 95% with roughly ±5 points of uncertainty. They are published here because concrete measured numbers are more useful than the unsourced accuracy claims most detector sites make.</p>
+      </div>
+
+      <h2>Why detection fails, and when to distrust it</h2>
+
+      <p>Every detector is weakest in the same places. If your image is one of these, lower your confidence in any score you get:</p>
+
+      <ul>
+        <li><strong>Screenshots.</strong> The worst case. No metadata, fresh compression, and the original pixel statistics destroyed. A screenshot of a real photo and a screenshot of a generated one look far more alike than the originals did.</li>
+        <li><strong>Social-media re-uploads.</strong> Stripped metadata plus aggressive re-compression removes much of what a detector reads.</li>
+        <li><strong>Heavily computational phone photos.</strong> Night mode, Smart HDR and portrait modes stack and process many frames. The output is real but statistically unusual — smooth in ways that can read as synthetic.</li>
+        <li><strong>Small or heavily cropped images.</strong> Less pixel evidence, less signal.</li>
+        <li><strong>Real photos of AI-generated things.</strong> A photograph of a screen showing a generated image is a genuine camera original. Detectors answer "how was this file made", not "is what it depicts true".</li>
+        <li><strong>Newer generators.</strong> Detection models are trained on the outputs that existed when they were built. A model released after the detector will always be the hardest case.</li>
+      </ul>
+
+      <p>The direction of error also matters. A detector tuned to never wrongly accuse a real family photo will let some generated images through, and vice versa. Ask which way the tool you are using is tuned.</p>
+
+      <h2>How to check a video</h2>
+
+      <p>Video is checked frame by frame. The practical approach is to sample frames spread across the clip, score each one as an image, and combine the results.</p>
+
+      <p>Use the <strong>median</strong> of the per-frame scores rather than the maximum. A single glossy or motion-blurred frame in a genuine clip can spike the maximum and produce a false accusation; the median is far more stable. On clip-level testing this separates cleanly, because a generated video tends to be generated in every frame rather than in one.</p>
+
+      <p>The manual checks also transfer, with additions: watch for flicker in fine detail between frames, features that drift or reset across cuts, and inconsistent motion blur. Audio is a separate problem with separate tools.</p>
+
+      <h2>A practical order of operations</h2>
+
+      <ol>
+        <li>Check the metadata. If there is coherent camera data, it is very probably a real photograph.</li>
+        <li>Reverse image search it. Provenance beats analysis whenever you can get it.</li>
+        <li>Zoom to 300% and look at reflections, shadows and incidental background text.</li>
+        <li>Run a detector, and read its per-check breakdown rather than only its headline number.</li>
+        <li>Ask where the image came from and who benefits from your believing it. Context resolves more cases than forensics does.</li>
+      </ol>
+
+      <div class="app-box">
+        <h2>Doing this on an iPhone</h2>
+        <p><a href="/verdict/">Verdict</a> is an AI image and video detector for iPhone that runs these checks for you. It scores a photo or video from 0–100, shows a plain-language verdict, and lists what each individual check found — including when one check disagrees with the overall result, which is the case worth looking at closely.</p>
+        <p>It runs the neural model, the metadata check and sensor-noise analysis, weighted by how much each is actually worth; Error Level Analysis is shown in the breakdown for reference but deliberately contributes nothing to the score, for the reason described above. For video it samples 15 frames across the clip and takes the median.</p>
+        <p>Everything runs on the device. Nothing is uploaded, there is no account, and it works in airplane mode. It is free to download with three scans a day; Verdict Pro removes the limit and unlocks the full per-check breakdown.</p>
+        <p class="cta"><a href="https://apps.apple.com/app/id6788504545">Download on the App Store</a></p>
+      </div>
+
+      <h2>Common questions</h2>
+
+      <h3>Can you still spot AI images by looking at the hands?</h3>
+      <p>Rarely, as of 2026. Hands, teeth and foreground text were the reliable artefacts of 2023-era models and current generators mostly render them correctly. Checking hands now produces false confidence in both directions. Reflections, shadow direction and incidental background detail have held up much better.</p>
+
+      <h3>Does missing EXIF data mean a photo is AI-generated?</h3>
+      <p>No, and this is the most common mistake. Almost every social platform strips EXIF on upload, and screenshots never had it. Missing metadata is what a normal shared image looks like. The inference only runs one way: coherent camera metadata is strong evidence of a real photo, but its absence is close to uninformative.</p>
+
+      <h3>How accurate are AI image detectors?</h3>
+      <p>Good ones reach roughly 90–95% on clean inputs — unmodified camera originals and untouched generator output. Accuracy drops substantially on screenshots, social-media re-uploads and heavily processed phone photos, because those strip away the evidence. Any detector quoting a single accuracy figure without saying what it was measured on is not telling you much. Treat every result as a probability to weigh, not a verdict to act on alone.</p>
+
+      <h3>Is Error Level Analysis useful for detecting AI images?</h3>
+      <p>Much less than its popularity suggests. ELA was designed to reveal areas of a JPEG that have been re-saved at a different quality — useful for spotting localised edits and splices. Applied to the AI-versus-real question it measured an AUC of 0.57 on our validation set, which is close to a coin flip. It is worth showing for transparency and worth very little as a deciding signal.</p>
+
+      <h3>Can an AI-generated image pass every check?</h3>
+      <p>Yes. Someone who generates an image, writes plausible EXIF data into it, and prints and rephotographs it will defeat all of the pixel-level and metadata checks described here. What survives is provenance: where the image first appeared, who published it, and whether any independent record of the event exists. Forensics narrows the question; it does not close it.</p>
+
+      <h3>How do I check whether a video is AI-generated?</h3>
+      <p>Sample frames across the clip, score each one, and take the median of the results rather than the highest. A single unusual frame in a real clip can spike a maximum-based score. Also watch for flicker in fine details between frames and for features that drift across cuts. On iPhone, <a href="/verdict/">Verdict</a> does this automatically.</p>
+
+      <h3>Is there a free way to do this without an app?</h3>
+      <p>Yes, and it covers most cases. Check the metadata in Photos, Preview or File Explorer; run the image through Google Lens or TinEye; and zoom in on reflections and background text. Those three cost nothing and resolve the majority of everyday questions. A detector adds value mainly when the file has been stripped of metadata and does not appear anywhere else.</p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="/verdict/">Verdict</a>
+        <a href="https://apps.apple.com/app/id6788504545">App Store</a>
+        <a href="privacy">Privacy</a>
+        <a href="support">Support</a>
+      </nav>
+      <span>&copy; 2026 Greg Wolny.</span>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to tell if an image is AI-generated",
+    "description": "A practical guide to checking whether a photo or video is AI-generated: metadata, reverse image search, physical inconsistencies, and what automated detectors actually measure.",
+    "datePublished": "2026-08-17",
+    "dateModified": "2026-08-17",
+    "author": {
+      "@type": "Person",
+      "name": "Greg Wolny",
+      "url": "https://greg-wolny.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Greg Wolny",
+      "url": "https://greg-wolny.github.io/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://greg-wolny.github.io/verdict/how-to-tell-if-an-image-is-ai-generated"
+    },
+    "about": [
+      { "@type": "Thing", "name": "AI-generated image detection" },
+      { "@type": "Thing", "name": "Image forensics" },
+      { "@type": "Thing", "name": "EXIF metadata" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How can I tell if an image is AI-generated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No single tell proves an image is AI-generated. Stack four independent checks: read the file's EXIF metadata (coherent camera data is strong evidence of a real photo), reverse image search it to find where it came from, zoom in on reflections, shadow direction and incidental background text, and run an automated detector on the pixels. Weigh them together and treat the result as a probability rather than proof."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you still spot AI images by looking at the hands?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rarely, as of 2026. Hands, teeth and foreground text were the reliable artefacts of 2023-era models, and current generators mostly render them correctly. Checking hands now produces false confidence in both directions. Reflections, shadow direction and incidental background detail have held up much better."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does missing EXIF data mean a photo is AI-generated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Almost every social platform strips EXIF metadata on upload, and screenshots never had it, so missing metadata is what a normal shared image looks like. The inference only runs one way: coherent camera metadata is strong evidence of a real photograph, but its absence is close to uninformative."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are AI image detectors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Good ones reach roughly 90 to 95 percent on clean inputs such as unmodified camera originals and untouched generator output. Accuracy drops substantially on screenshots, social-media re-uploads and heavily processed phone photos, because those strip away the evidence a detector reads. Treat every result as a probability to weigh rather than a verdict to act on alone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Error Level Analysis useful for detecting AI images?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Much less than its popularity suggests. Error Level Analysis was designed to reveal areas of a JPEG re-saved at a different quality, which is useful for spotting localised edits and splices. Applied to the AI-versus-real question it measured an AUC of 0.57 on Verdict's validation set, close to a coin flip."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can an AI-generated image pass every check?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Someone who generates an image, writes plausible EXIF data into it, then prints and rephotographs it will defeat the pixel-level and metadata checks. What survives is provenance: where the image first appeared, who published it, and whether any independent record of the event exists."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check whether a video is AI-generated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sample frames spread across the clip, score each one as an image, and take the median of the per-frame results rather than the maximum, because a single unusual frame in a genuine clip can spike a maximum-based score. Also watch for flicker in fine detail between frames and features that drift across cuts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a free way to check an image without an app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Check the metadata in Photos on iPhone, Preview on Mac or File Explorer properties on Windows; run the image through Google Lens or TinEye; and zoom to 300 percent to inspect reflections and background text. Those three checks cost nothing and resolve most everyday questions."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

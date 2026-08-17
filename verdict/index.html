@@ -39,7 +39,7 @@
       <div class="feature-grid">
         <div class="feature">
           <h3>Photos and video</h3>
-          <p>For a photo, Verdict runs four independent forensic analyzers — a neural-network model, sensor-noise analysis, Error Level Analysis, and metadata inspection. For a video, it samples frames across the clip and runs the AI-detection model on each one, then combines the evidence into a single 0–100 score with a plain-language verdict.</p>
+          <p>For a photo, Verdict runs four independent forensic analyzers — a neural-network model, metadata inspection, sensor-noise analysis, and Error Level Analysis — and weights them by how much each is actually worth, which is why ELA is reported but not scored. For a video, it samples 15 frames across the clip, runs the AI-detection model on each one, and takes the median. Either way you get a single 0–100 score with a plain-language verdict.</p>
         </div>
         <div class="feature">
           <h3>Check from anywhere</h3>
@@ -63,7 +63,8 @@
       <div class="feature-grid">
         <div class="feature">
           <h3>How can I tell if a photo is AI-generated?</h3>
-          <p>Open Verdict on your iPhone, pick the photo from your library or share it into the app, and it returns a 0–100 score with a plain-language verdict. The score combines four checks: a neural-network model trained to recognise generated imagery, sensor-noise analysis (real camera sensors leave a characteristic noise pattern that generators do not reproduce), Error Level Analysis of compression artefacts, and inspection of the file's metadata for camera make, model, lens and exposure data.</p>
+          <p>Open Verdict on your iPhone, pick the photo from your library or share it into the app, and it returns a 0–100 score with a plain-language verdict. The score combines three checks: a neural-network model trained to recognise generated imagery, inspection of the file's metadata for camera make, model, lens and exposure data, and sensor-noise analysis. Error Level Analysis is shown in the breakdown for reference but carries no weight in the score, because it measures compression history rather than synthesis.</p>
+          <p>You can also do a lot of this by hand, without any app — see the full guide to <a href="how-to-tell-if-an-image-is-ai-generated">how to tell if an image is AI-generated</a>.</p>
         </div>
         <div class="feature">
           <h3>Is there an iPhone app that detects AI-generated images?</h3>
@@ -101,6 +102,7 @@
     <div class="container">
       <nav>
         <a href="https://apps.apple.com/app/id6788504545">App Store</a>
+        <a href="how-to-tell-if-an-image-is-ai-generated">Guide</a>
         <a href="privacy">Privacy</a>
         <a href="support">Support</a>
       </nav>
