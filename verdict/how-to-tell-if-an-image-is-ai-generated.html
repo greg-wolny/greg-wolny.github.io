@@ -137,6 +137,10 @@
 
       <p>This matters if you are reading someone's ELA heat map and drawing conclusions from it. On modern generated images, those maps are close to noise.</p>
 
+      <p><strong>One important qualification, because the published literature looks like it disagrees.</strong> Several peer-reviewed papers report 89–100% accuracy for ELA-based AI detection — for example in <em>Sensors</em> (2023) and <em>Scientific Reports</em> (2023). Those studies are measuring something different: they feed the full ELA <em>image</em> into a convolutional network that learns whatever patterns it contains. The figure above is ELA reduced to a summary statistic and fed into a weighted score, which is how most detectors actually use it, and how a human reads a heat map.</p>
+
+      <p>Both results can be true at once, and the distinction is practical rather than academic. A CNN trained on ELA maps performs superbly on generators it saw in training and much worse on ones it did not — the 2026 <em>IJET</em> study that tested this explicitly found cross-generator performance was where these methods struggle most, and one ELA-based system that scored 96% fell to around 20–38% under added noise, cropping or histogram equalisation. So: <strong>ELA as a learned feature is genuinely useful in a narrow setting; ELA as a general-purpose "is this AI" signal is not.</strong> Verdict weights it at zero for that reason.</p>
+
       <div class="note">
         <p>These numbers come from a small held-out set, so treat them as indicative rather than precise — the overall blended accuracy sits around 95% with roughly ±5 points of uncertainty. They are published here because concrete measured numbers are more useful than the unsourced accuracy claims most detector sites make.</p>
       </div>
@@ -194,7 +198,8 @@
       <p>Good ones reach roughly 90–95% on clean inputs — unmodified camera originals and untouched generator output. Accuracy drops substantially on screenshots, social-media re-uploads and heavily processed phone photos, because those strip away the evidence. Any detector quoting a single accuracy figure without saying what it was measured on is not telling you much. Treat every result as a probability to weigh, not a verdict to act on alone.</p>
 
       <h3>Is Error Level Analysis useful for detecting AI images?</h3>
-      <p>Much less than its popularity suggests. ELA was designed to reveal areas of a JPEG that have been re-saved at a different quality — useful for spotting localised edits and splices. Applied to the AI-versus-real question it measured an AUC of 0.57 on our validation set, which is close to a coin flip. It is worth showing for transparency and worth very little as a deciding signal.</p>
+      <p>It depends entirely on how it is used. As a standalone signal — the ELA heat map a person looks at, or an ELA statistic fed into a weighted score — it is much weaker than its popularity suggests: it measured an AUC of 0.57 on our validation set, close to a coin flip. ELA was designed to reveal parts of a JPEG re-saved at a different quality, which is a different problem from synthesis.</p>
+      <p>Published research reporting 89–100% accuracy for "ELA detection" is measuring something else: full ELA images fed into a convolutional network that learns the patterns in them. That works well on generators present in training and degrades sharply on unseen ones, and under added noise or cropping. So ELA is a useful learned feature in a narrow setting, and a poor general-purpose signal — which is why Verdict displays it but gives it no weight in the score.</p>
 
       <h3>Can an AI-generated image pass every check?</h3>
       <p>Yes. Someone who generates an image, writes plausible EXIF data into it, and prints and rephotographs it will defeat all of the pixel-level and metadata checks described here. What survives is provenance: where the image first appeared, who published it, and whether any independent record of the event exists. Forensics narrows the question; it does not close it.</p>
@@ -291,7 +296,7 @@
         "name": "Is Error Level Analysis useful for detecting AI images?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Much less than its popularity suggests. Error Level Analysis was designed to reveal areas of a JPEG re-saved at a different quality, which is useful for spotting localised edits and splices. Applied to the AI-versus-real question it measured an AUC of 0.57 on Verdict's validation set, close to a coin flip."
+          "text": "It depends on how it is used. As a standalone signal — an ELA heat map a person reads, or an ELA statistic fed into a weighted score — it is much weaker than its popularity suggests, measuring an AUC of 0.57 on Verdict's validation set, close to a coin flip. Published research reporting 89 to 100 percent accuracy is measuring something different: full ELA images fed into a convolutional network that learns the patterns in them. That performs well on generators seen during training and degrades sharply on unseen generators and under noise or cropping. ELA is therefore a useful learned feature in a narrow setting and a poor general-purpose signal for whether an image is AI-generated."
         }
       },
       {

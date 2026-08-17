@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Internal backend wiring check — not content.
+Disallow: /test/
+
+Sitemap: https://greg-wolny.github.io/sitemap.xml

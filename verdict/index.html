@@ -47,7 +47,7 @@
       <div class="feature-grid">
         <div class="feature">
           <h3>Photos and video</h3>
-          <p>For a photo, Verdict runs four independent forensic analyzers — a neural-network model, metadata inspection, sensor-noise analysis, and Error Level Analysis — and weights them by how much each is actually worth, which is why ELA is reported but not scored. For a video, it samples 15 frames across the clip, runs the AI-detection model on each one, and takes the median. Either way you get a single 0–100 score with a plain-language verdict.</p>
+          <p>For a photo, Verdict scores three signals — a neural-network model, metadata inspection and sensor-noise analysis — weighted by how much each is actually worth. A fourth check, Error Level Analysis, is shown in the breakdown for reference but deliberately carries no weight, because it measures compression history rather than synthesis. For a video, Verdict samples 15 frames across the clip, runs the AI-detection model on each one, and takes the median. Either way you get a single 0–100 score with a plain-language verdict.</p>
         </div>
         <div class="feature">
           <h3>Check from anywhere</h3>
