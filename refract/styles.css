@@ -1,0 +1,328 @@
+:root {
+  color-scheme: light dark;
+  --bg: #faf7f4;
+  --surface: #ffffff;
+  --surface-muted: #f1ebe6;
+  --text: #1a1410;
+  --text-secondary: #66594d;
+  --text-tertiary: #9f9080;
+  --hairline: #e3dcd2;
+  --brand: #2563eb;
+  --brand-soft: #dbeafe;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161214;
+    --surface: #1f1a1d;
+    --surface-muted: #2a2226;
+    --text: #f6f1ea;
+    --text-secondary: #b5a99a;
+    --text-tertiary: #7a6e5f;
+    --hairline: #3a2f35;
+    --brand: #5b9bff;
+    --brand-soft: #17324f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Top bar */
+header.top {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+header.top .container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+header.top a.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: -0.005em;
+}
+header.top .glyph-sm {
+  width: 22px;
+  height: 22px;
+}
+
+/* Hero */
+section.hero {
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+section.hero .glyph-lg {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1.5rem;
+}
+section.hero h1 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 600;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  line-height: 1.05;
+}
+section.hero .tagline {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  max-width: 32ch;
+  margin: 0 auto 2rem;
+  line-height: 1.4;
+}
+
+/* Features */
+section.features {
+  padding: 3rem 0;
+  border-top: 1px solid var(--hairline);
+}
+section.features h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 2rem;
+  text-align: center;
+}
+.feature-grid {
+  display: grid;
+  gap: 2rem;
+}
+.feature h3 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.375rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+.feature p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Privacy callout */
+section.privacy-callout {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--surface-muted);
+  border-radius: 16px;
+}
+section.privacy-callout h2 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+section.privacy-callout p {
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+}
+section.privacy-callout p:last-child { margin-bottom: 0; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2rem 0 4rem;
+  margin-top: 3rem;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+}
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+footer nav a {
+  color: var(--text-secondary);
+  margin-right: 1.25rem;
+}
+footer nav a:last-child { margin-right: 0; }
+
+/* Document pages (privacy, support) */
+article.doc {
+  padding: 3rem 0 2rem;
+}
+article.doc h1 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.25rem;
+}
+article.doc .effective {
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  margin: 0 0 2.5rem;
+}
+article.doc h2 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.375rem;
+  margin: 2.5rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+article.doc p,
+article.doc li {
+  color: var(--text);
+  font-size: 1rem;
+}
+article.doc p {
+  margin: 0 0 1rem;
+}
+article.doc ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+article.doc li { margin-bottom: 0.5rem; }
+article.doc strong { font-weight: 600; }
+article.doc .summary {
+  background: var(--surface-muted);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  margin: 0 0 2rem;
+}
+article.doc .summary p { margin: 0; color: var(--text-secondary); }
+
+/* Smaller screens */
+@media (max-width: 480px) {
+  section.hero { padding: 3.5rem 0 3rem; }
+  section.hero h1 { font-size: 2.25rem; }
+  section.hero .tagline { font-size: 1.0625rem; }
+}
+
+/* Hero: the canonical one-sentence definition runs longer than the old
+   tagline, so give it room rather than breaking it across many short lines. */
+section.hero .tagline { max-width: 46ch; }
+
+/* ---------------------------------------------------------------
+   Guide pages (answer-first articles, e.g. how-to-tell-if-an-image-
+   is-ai-generated). Built on article.doc, which already covers
+   h1/h2/p/ul/li/strong/.summary.
+   --------------------------------------------------------------- */
+
+/* The short, direct answer at the top. Deliberately the first thing
+   both a reader and a retrieval system encounter. */
+article.doc .answer {
+  background: var(--brand-soft);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 2.5rem;
+}
+article.doc .answer p { margin: 0; }
+article.doc .answer p + p { margin-top: 0.75rem; }
+
+article.doc h3 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin: 1.75rem 0 0.5rem;
+  letter-spacing: -0.005em;
+}
+
+/* Numbered method list — each step is a self-contained check. */
+article.doc ol { padding-left: 1.25rem; margin: 0 0 1.25rem; }
+article.doc ol li { margin-bottom: 0.75rem; }
+
+/* Signal-strength table. Scrolls rather than squashing on phones. */
+article.doc .table-wrap { overflow-x: auto; margin: 0 0 1.5rem; }
+article.doc table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9375rem;
+}
+article.doc th,
+article.doc td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+article.doc th {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+article.doc td:first-child { white-space: nowrap; font-weight: 500; }
+
+/* Caveats worth interrupting the flow for. */
+article.doc .note {
+  border-left: 3px solid var(--hairline);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+}
+article.doc .note p { margin: 0; }
+
+/* Clearly-fenced product section, so the guide reads as a guide. */
+article.doc .app-box {
+  background: var(--surface-muted);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2.5rem 0 1.5rem;
+}
+article.doc .app-box h2 { margin-top: 0; }
+article.doc .app-box p:last-child { margin-bottom: 0; }
+
+article.doc .backlink {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin: 0 0 1.5rem;
+}
+
+/* App Store call to action under the hero tagline. */
+.cta {
+  margin: 0 0 0.5rem;
+}
+.cta a {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.cta a:hover { opacity: 0.85; }
+
+/* Real App Store icon replaces the old line-art glyph. The PNG already
+   carries the iOS squircle in its alpha channel, so no border-radius here —
+   rounding it again would clip the corners twice. `display:block` is what
+   makes the hero rule's `margin: 0 auto` actually centre an <img>. */
+img.glyph-sm,
+img.glyph-lg {
+  display: block;
+  object-fit: contain;
+}
+img.glyph-sm { border-radius: 5px; }
