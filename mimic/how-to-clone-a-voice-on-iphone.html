@@ -144,7 +144,7 @@
         <h2>Doing this on an iPhone</h2>
         <p><a href="/mimic/">Mimic</a> is a voice cloning and real-time voice changing app for iPhone that runs the whole pipeline on the device. You read a short script for 45 seconds, it builds a voice avatar on the phone, and you can then perform with that voice live through headphones or convert a recording.</p>
         <p>Cloning is <strong>microphone-only by design</strong> — there is no way to import a downloaded clip, so the person being cloned has to be present and reading. The app also asks you to confirm you have permission before it will record a sample at all.</p>
-        <p>Fourteen voices ship with it: six free effects (Robot, Helium, Demon, Underwater, Whisper, Echo) that work on any supported iPhone, and eight designer voices that need Pro. Cloning and the designer voices require iPhone 15 Pro or newer, for the throughput reason above.</p>
+        <p>Mimic itself runs on any iPhone with iOS 18 or later. Fourteen voices ship with it: six free effects (Robot, Helium, Demon, Underwater, Whisper, Echo) that work on all of those, and eight designer voices that need Pro. Cloning and the designer voices require iPhone 15 Pro or newer, for the throughput reason above.</p>
         <p>Nothing is uploaded. There is no account and no backend — recordings, embeddings and converted audio stay on the phone. Free to download; Mimic Pro is a monthly subscription with a 7-day free trial, or a one-time lifetime purchase.</p>
         <p class="cta"><a href="https://apps.apple.com/app/id6769644232">Download on the App Store</a></p>
       </div>
@@ -161,7 +161,7 @@
       <p>It can, if the app runs its models on the device rather than a server. On-device cloning uses Core ML on Apple's Neural Engine and works in airplane mode, with nothing uploaded. Most voice cloning services are cloud-based and require a connection and an account. Check whether the app has a backend at all — that is the difference that determines where your recording ends up.</p>
 
       <h3>Which iPhone do I need for voice cloning?</h3>
-      <p>Neural voice conversion in real time needs iPhone 15 Pro or newer — A17 Pro, A18, A19 and later — because the model must run continuously faster than speech arrives. Older iPhones can still run classic DSP effects such as pitch and formant shifting, which alter a voice without reproducing a specific person's.</p>
+      <p>Mimic installs on any iPhone running iOS 18 or later, and the six free voice effects work on all of them. Voice cloning is the part that needs newer hardware: real-time neural voice conversion needs iPhone 15 Pro or newer — A17 Pro, A18, A19 and later — because the model must run continuously faster than speech arrives. On an older iPhone Mimic does not offer the Pro purchase at all; it explains why instead, so you are never sold something your device cannot run.</p>
 
       <h3>Is voice cloning legal?</h3>
       <p>Cloning your own voice is fine. Cloning someone else's without permission may breach right-of-publicity laws (Tennessee's ELVIS Act names voice explicitly) or biometric privacy laws such as Illinois' BIPA, and using a cloned voice to deceive someone is illegal in most jurisdictions regardless of how it was produced. Get clear consent, disclose synthetic audio when a real person's likeness is involved, and do not use it to mislead. This is not legal advice and the rules vary by jurisdiction.</p>
@@ -261,7 +261,7 @@
         "name": "Which iPhone do I need for voice cloning?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Real-time neural voice conversion needs iPhone 15 Pro or newer — A17 Pro, A18, A19 and later — because the model must run continuously faster than speech arrives. Older iPhones can still run classic DSP effects such as pitch and formant shifting, which alter a voice without reproducing a specific person's."
+          "text": "Mimic installs on any iPhone running iOS 18 or later, and the six free voice effects work on all of them. Voice cloning is the part that needs newer hardware: real-time neural voice conversion needs iPhone 15 Pro or newer \u2014 A17 Pro, A18, A19 and later \u2014 because the model must run continuously faster than speech arrives. On an older iPhone Mimic does not offer the Pro purchase at all; it explains why instead, so you are never sold something your device cannot run."
         }
       },
       {
