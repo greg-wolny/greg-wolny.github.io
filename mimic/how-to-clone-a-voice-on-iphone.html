@@ -40,7 +40,7 @@
       <p class="effective">Last updated 17 August 2026</p>
 
       <div class="answer">
-        <p><strong>You need three things: a clean voice sample of roughly 45 seconds, an app that builds a voice model from it, and permission from the person whose voice it is.</strong></p>
+        <p><strong>You need three things: a clean voice sample of roughly 20 to 30 seconds, an app that builds a voice model from it, and permission from the person whose voice it is.</strong></p>
         <p>The sample matters more than the app. A quiet room, a consistent distance from the microphone and natural connected speech will beat an expensive tool fed a noisy clip every time. Everything else — cloud or on-device, real-time or offline — is a trade-off you pick after that.</p>
       </div>
 
@@ -90,7 +90,7 @@
         <li><strong>Read connected prose, not word lists.</strong> The model needs natural transitions between sounds. Reading a paragraph aloud gives it that; reciting isolated words does not.</li>
         <li><strong>Cover the range of sounds.</strong> This is why phonetically balanced passages exist — the Rainbow Passage and the Harvard Sentences are public-domain texts written to include most English phonemes in a short read.</li>
         <li><strong>Speak the way you normally speak.</strong> A performed "radio voice" clones a radio voice. If you want your own voice back, use it.</li>
-        <li><strong>Give it about 45 seconds.</strong> Beyond roughly a minute the returns flatten quickly; below about 20 seconds the timbre gets thin and unstable.</li>
+        <li><strong>Give it 20 to 30 seconds.</strong> Beyond roughly a minute the returns flatten quickly. Very short samples mainly suffer when a tool analyses the clip as one fixed block and pads the remainder with silence — silence carries no voice identity, so it drags the model toward a generic average. Tools that average several overlapping windows hold up fine at 20 seconds.</li>
       </ol>
 
       <p><strong>What to avoid:</strong> background music (it cannot be separated out and will be modelled as part of the voice), audio played back through a speaker and re-recorded, heavily compressed sources such as streamed video or a phone call, and any clip where two people talk over each other.</p>
@@ -142,7 +142,7 @@
 
       <div class="app-box">
         <h2>Doing this on an iPhone</h2>
-        <p><a href="/mimic/">Mimic</a> is a voice cloning and real-time voice changing app for iPhone that runs the whole pipeline on the device. You read a short script for 45 seconds, it builds a voice avatar on the phone, and you can then perform with that voice live through headphones or convert a recording.</p>
+        <p><a href="/mimic/">Mimic</a> is a voice cloning and real-time voice changing app for iPhone that runs the whole pipeline on the device. You read a short script for about 20 seconds, it builds a voice avatar on the phone, and you can then perform with that voice live through headphones or convert a recording.</p>
         <p>Cloning is <strong>microphone-only by design</strong> — there is no way to import a downloaded clip, so the person being cloned has to be present and reading. The app also asks you to confirm you have permission before it will record a sample at all.</p>
         <p>Mimic itself runs on any iPhone with iOS 18 or later. Fourteen voices ship with it: six free effects (Robot, Helium, Demon, Underwater, Whisper, Echo) that work on all of those, and eight designer voices that need Pro. Cloning and the designer voices require iPhone 15 Pro or newer, for the throughput reason above.</p>
         <p>Nothing is uploaded. There is no account and no backend — recordings, embeddings and converted audio stay on the phone. Free to download; Mimic Pro is a monthly subscription with a 7-day free trial, or a one-time lifetime purchase.</p>
@@ -152,7 +152,7 @@
       <h2>Common questions</h2>
 
       <h3>How long does a voice sample need to be?</h3>
-      <p>About 45 seconds of clean, connected speech is the practical sweet spot. Below roughly 20 seconds the clone tends to sound thin and unstable; past about a minute the improvement flattens out quickly. Sample quality matters far more than sample length — 30 clean seconds beats three noisy minutes.</p>
+      <p>About 20 to 30 seconds of clean, connected speech is enough. Sample quality matters far more than sample length — 20 clean seconds beats three noisy minutes, and past about a minute the improvement flattens out quickly. Guides that insist on a full minute are usually describing tools that analyse the sample as a single fixed block and pad the rest with silence; averaging overlapping windows removes most of that penalty.</p>
 
       <h3>Can I clone a voice from a YouTube video or a voice note?</h3>
       <p>Technically some tools accept any audio file, but there are two problems. Streamed and messaging audio is heavily compressed, and that compression is learned as part of the voice, so the clone sounds worse than a fresh recording. More importantly, using someone's voice without their permission may breach right-of-publicity or biometric privacy laws depending on where you are. Some apps, Mimic among them, only clone from a live microphone recording for exactly this reason.</p>
@@ -229,7 +229,7 @@
         "name": "How do I clone a voice on an iPhone?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You need a clean voice sample of roughly 45 seconds, an app that builds a voice model from it, and permission from the person whose voice it is. Record in a quiet, soft-furnished room at a consistent distance from the microphone, reading connected prose rather than word lists. The sample quality matters more than which app you use. On-device apps build the voice model on the phone itself, so the recording is never uploaded."
+          "text": "You need a clean voice sample of roughly 20 to 30 seconds, an app that builds a voice model from it, and permission from the person whose voice it is. Record in a quiet, soft-furnished room at a consistent distance from the microphone, reading connected prose rather than word lists. The sample quality matters more than which app you use. On-device apps build the voice model on the phone itself, so the recording is never uploaded."
         }
       },
       {
@@ -237,7 +237,7 @@
         "name": "How long does a voice sample need to be for cloning?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "About 45 seconds of clean, connected speech is the practical sweet spot. Below roughly 20 seconds the clone tends to sound thin and unstable, and past about a minute the improvement flattens out quickly. Sample quality matters far more than length: 30 clean seconds beats three noisy minutes."
+          "text": "About 20 to 30 seconds of clean, connected speech is enough. Sample quality matters far more than length: 20 clean seconds beats three noisy minutes, and past about a minute the improvement flattens out quickly. Very short samples mainly suffer when a tool analyses the clip as one fixed block and pads the remainder with silence; averaging overlapping windows removes most of that penalty."
         }
       },
       {
