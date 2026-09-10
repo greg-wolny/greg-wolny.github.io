@@ -11,23 +11,78 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/png" href="../favicon.png">
   <style>
+    /* This page uses `main.container` rather than `article.doc`, so it
+       gets none of the document typography — the h1 was rendering at the
+       browser default, in sans-serif, on a site where every other
+       heading is the serif. And with no vertical padding it collided
+       with the header rule. Both restated here. */
+    main.container {
+      padding-top: clamp(1.75rem, 5vw, 3rem);
+      padding-bottom: clamp(2rem, 6vw, 3rem);
+    }
+    h1 {
+      font-family: ui-serif, "New York", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(1.625rem, 4.5vw, 2.25rem);
+      letter-spacing: -0.015em;
+      line-height: 1.12;
+      margin: 0 0 0.5rem;
+    }
+
     .launch {
       display: flex; align-items: center; gap: 14px;
-      padding: 20px 22px; margin: 26px 0 10px;
+      padding: 18px 20px; margin: 26px 0 10px;
       border: 1.5px solid var(--brand); border-radius: 16px;
       background: var(--surface); text-decoration: none; color: var(--text);
+      /* Already a generous tap target; stated so it stays one. */
+      min-height: 64px;
     }
     .launch:hover { background: var(--surface-muted); }
-    .launch .big { font-size: 19px; font-weight: 600; display: block; }
-    .launch .sub { font-size: 14px; color: var(--text-secondary); }
-    .launch .arrow { margin-left: auto; color: var(--text-tertiary); font-size: 20px; }
+    .launch .label { min-width: 0; }   /* let the text wrap instead of shoving the arrow out */
+    .launch .big { font-size: clamp(1.0625rem, 2.4vw, 1.1875rem); font-weight: 600; display: block; }
+    .launch .sub { font-size: 0.875rem; color: var(--text-secondary); }
+    .launch .arrow { margin-left: auto; color: var(--text-tertiary); font-size: 20px; flex: 0 0 auto; }
+    @media (hover: none) { .launch:hover { background: var(--surface); } }
+
     .fallback { border: 1px solid var(--hairline); border-radius: 14px;
-      padding: 18px 20px; background: var(--surface); margin: 22px 0; }
-    .fallback h2 { font-size: 15px; margin: 0 0 6px; }
-    pre { background: var(--surface-muted); border-radius: 10px; padding: 12px 14px;
-      overflow-x: auto; font-size: 13px; margin: 10px 0 6px; }
-    .why { color: var(--text-secondary); font-size: 14px; }
-    .why code { background: var(--surface-muted); padding: 1px 5px; border-radius: 4px; }
+      padding: clamp(14px, 3vw, 20px); background: var(--surface); margin: 22px 0; }
+    .fallback h2 { font-size: 0.9375rem; margin: 0 0 6px; }
+
+    /* 🔴 These commands WRAP; they used to scroll horizontally.
+       The whole point of this page is to hand you a command at the
+       moment you cannot reach the dashboard — and the longest one
+       (the ssh tunnel, 72 characters) was cut off mid-host on any
+       narrow window, so the text you needed was the text you could not
+       see. Wrapping is visual only: copying still yields one line.
+       The hanging indent is what keeps a wrapped continuation from
+       reading like a second command. */
+    pre {
+      background: var(--surface-muted); border-radius: 10px;
+      padding: 12px 14px 12px 28px;
+      font-size: 0.8125rem; line-height: 1.5; margin: 10px 0 6px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      text-indent: -14px;          /* first line flush, continuations indented */
+      overflow-x: auto;            /* backstop for anything unbreakable */
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Numbered so the three setup commands read as a sequence rather
+       than as three interchangeable snippets. */
+    .steps { margin: 10px 0 6px; padding-left: 1.5rem; }
+    .steps li { margin: 0 0 6px; }
+    .steps li:last-child { margin-bottom: 0; }
+    /* ::marker, not the <li>. Setting the colour on the list item
+       cascaded into the <pre> inside it, so the three setup commands
+       rendered dimmer than the standalone command below them — an
+       inconsistency and a contrast problem, from a rule meant only to
+       mute a number. */
+    .steps li::marker { color: var(--text-tertiary); font-size: 0.8125rem; }
+    .steps pre { margin: 4px 0 0; color: var(--text); }
+
+    .why { color: var(--text-secondary); font-size: 0.875rem; }
+    .why code { background: var(--surface-muted); padding: 1px 5px; border-radius: 4px;
+      overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
@@ -46,17 +101,23 @@
       Review, approve and take down voices submitted to Mimic's Public library.
       This page is only a bookmark. The dashboard itself runs on the backend —
       approving a voice writes to a database, and GitHub Pages serves static
-      files only, so it cannot proxy. Keep this page to yourself: the link
-      below is the dashboard's unguessable address, which is half of what
-      protects it.
+      files only, so it cannot proxy.
+    </p>
+    <p class="why">
+      <strong>The password is the only thing protecting the dashboard.</strong>
+      This file is served by GitHub Pages from a public repository and it
+      contains the dashboard's address in plain HTML, so treat that address as
+      published, not secret — <code>noindex</code> keeps it out of search
+      results, which is not the same as keeping it private. Anything that
+      matters has to rest on the password.
     </p>
 
     <a class="launch" id="remote" href="https://64-181-251-135.nip.io/moderate-f8e862679a2d/">
-      <span>
+      <span class="label">
         <span class="big">Open the dashboard</span>
         <span class="sub">Username <code>greg</code> · your moderator password</span>
       </span>
-      <span class="arrow">→</span>
+      <span class="arrow" aria-hidden="true">→</span>
     </a>
 
     <div class="fallback">
@@ -65,9 +126,16 @@
         One-time setup on the backend. You type the password; nobody else
         sees it, and only its hash is stored:
       </p>
-      <pre>ssh -i ~/.ssh/oracle_speedtest.key ubuntu@64.181.251.135
-caddy hash-password
-sudo /opt/mimic/enable-dashboard.sh '&lt;the hash it printed&gt;'</pre>
+      <!-- One <pre> per command, deliberately. Once these wrap, a shared
+           block makes a wrapped continuation and a new command sit at the
+           same indent, so `caddy hash-password` read as part of the ssh
+           line above it. One command per block cannot be misread, and
+           each one selects cleanly on its own. -->
+      <ol class="steps">
+        <li><pre>ssh -i ~/.ssh/oracle_speedtest.key ubuntu@64.181.251.135</pre></li>
+        <li><pre>caddy hash-password</pre></li>
+        <li><pre>sudo /opt/mimic/enable-dashboard.sh '&lt;the hash it printed&gt;'</pre></li>
+      </ol>
       <p class="why">
         There's also always the local route, which needs no password at all
         because it never leaves your machine:
