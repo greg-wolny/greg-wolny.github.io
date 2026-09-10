@@ -167,3 +167,114 @@ footer {
   flex-shrink: 0;
   display: block;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE + POLISH LAYER — added 2026-09-10
+   ═══════════════════════════════════════════════════════════════════
+   The index had a viewport meta and no horizontal overflow at 375px
+   (measured), but no breakpoints at all: desktop padding and type
+   applied unchanged on a phone, and the page never grew on a large
+   display. Fluid values rather than more breakpoints, so every width
+   is covered including the untested ones.
+
+   Appended last on purpose — these restate earlier rules at equal
+   specificity and win on source order.
+   ─────────────────────────────────────────────────────────────────── */
+
+:root { --gutter: 1.5rem; }
+@media (max-width: 380px) { :root { --gutter: 1.125rem; } }
+
+main {
+  width: min(100% - (var(--gutter) * 2), 640px);
+  max-width: none;
+  margin-inline: auto;
+  /* 4rem of dead space at the top of a phone screen was the single
+     biggest thing pushing real content below the fold. */
+  padding: clamp(2.25rem, 8vw, 4.5rem) 0 clamp(3.5rem, 10vw, 6rem);
+}
+
+@media (min-width: 1000px) {
+  main { width: min(100% - (var(--gutter) * 2), 700px); }
+}
+
+@supports (padding: max(0px)) {
+  @media (orientation: landscape) {
+    main {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
+    }
+  }
+}
+
+h1 {
+  font-size: clamp(1.875rem, 6vw, 2.75rem);
+  line-height: 1.08;
+}
+.lede {
+  font-size: clamp(1.03125rem, 2vw, 1.1875rem);
+  margin-bottom: clamp(2rem, 6vw, 3rem);
+}
+
+/* 🔴 `.app-links` was `display: flex` with no `flex-wrap`. Three links
+   happen to fit at 375px in English at the default text size — and
+   overflow the moment any of those three change: a longer guide title,
+   a translated string, or a reader who has turned up the system font.
+   A row that cannot wrap is a horizontal scrollbar waiting for a
+   reason. */
+.app-links {
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.app-desc { font-size: clamp(0.9375rem, 1.7vw, 1rem); overflow-wrap: break-word; }
+.note { overflow-wrap: break-word; }
+
+/* A long app name must be able to break rather than widen the row. */
+.app-name { overflow-wrap: break-word; min-width: 0; }
+.app-list a.app-head { align-items: center; }
+
+/* Touch targets — Apple's minimum is 44×44pt, and these link rows are
+   the whole navigation of the page. Coarse pointers only, so the
+   desktop layout is unchanged. */
+@media (pointer: coarse) {
+  .app-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* 🔴 There was no focus style anywhere, so keyboard and switch-control
+   users had nothing to follow. */
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* A `:hover` opacity rule latches after a tap on a touch screen and the
+   row stays faded until something else is touched. */
+@media (hover: none) {
+  .app-list a:hover,
+  .app-head:hover,
+  .app-links a:hover { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img { max-width: 100%; height: auto; }
+
+@media print {
+  :root {
+    --bg: #fff; --surface: #fff; --text: #000;
+    --muted: #333; --hairline: #ccc; --accent: #000;
+  }
+  main { width: 100%; padding-top: 0; }
+  a { color: #000; }
+}

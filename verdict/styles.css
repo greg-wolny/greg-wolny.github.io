@@ -210,12 +210,10 @@ article.doc .summary {
 }
 article.doc .summary p { margin: 0; color: var(--text-secondary); }
 
-/* Smaller screens */
-@media (max-width: 480px) {
-  section.hero { padding: 3.5rem 0 3rem; }
-  section.hero h1 { font-size: 2.25rem; }
-  section.hero .tagline { font-size: 1.0625rem; }
-}
+/* The old `max-width: 480px` hero block lived here. Removed 2026-09-10:
+   the fluid `clamp()` values in the responsive layer at the end of this
+   file supersede all three of its declarations and already won on source
+   order, so it was dead weight that read as if it were in charge. */
 
 /* Hero: the canonical one-sentence definition runs longer than the old
    tagline, so give it room rather than breaking it across many short lines. */
@@ -326,3 +324,212 @@ img.glyph-lg {
   object-fit: contain;
 }
 img.glyph-sm { border-radius: 5px; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE + POLISH LAYER — added 2026-09-10
+   ═══════════════════════════════════════════════════════════════════
+   🔴 SYNCHRONISED ACROSS ALL FOUR APP STYLESHEETS (mimic, postcard,
+   refract, verdict). They were already near-identical copies differing
+   only in brand colour, so this block is byte-identical in each and
+   uses `var(--brand)` rather than a literal. **Edit all four, or none.**
+
+   Appended at the end on purpose: these rules restate earlier ones at
+   the same specificity and must win on source order.
+
+   What was wrong: the site *fitted* on a phone (viewport meta, single
+   column, no horizontal overflow at 375px — measured) but nothing
+   adapted. One fixed design sat centred in whatever window it got, so
+   the hero was the same size at 1280 as at 360, the feature grid was
+   one column on a 27" display, and phone padding was chosen for a
+   desktop. The fix is fluid type and spacing rather than more
+   breakpoints — a `clamp()` covers every width, including the ones
+   nobody thought to test.
+   ─────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* One knob for the reading column, so the breakpoint that widens it
+     lives in exactly one place. 640px is a comfortable measure; 720
+     stops it looking marooned on a large display without pushing the
+     line length past what is pleasant to read. */
+  --measure: 640px;
+  --gutter: 1.5rem;
+}
+
+/* 🔑 Two steps, and they exist to keep the hero's WRAP stable.
+   The headline grows with the viewport but the column did not, so
+   between ~850 and 1000px the type outgrew a 640px measure and the
+   hero went two lines → three → back to two as the window widened.
+   Measured, not guessed: 48px/2 lines at 768, 56px/3 lines at 900.
+   Widening the column in step with the type holds it at two lines
+   from 640px up. */
+@media (min-width: 820px) {
+  :root { --measure: 700px; }
+}
+/* 940, not 1000: the headline reaches its 3.75rem cap at 6.2vw = 968px,
+   and a 20px-step sweep showed the last three-line band sitting at
+   960-980px — max type in a column that had not stepped up yet. The
+   column now widens just before the type stops growing. */
+@media (min-width: 940px) {
+  :root { --measure: 740px; }
+}
+
+/* Very small phones (SE, and any phone with large text). The old
+   1.5rem gutter cost 48px of a 320px screen. */
+@media (max-width: 380px) {
+  :root { --gutter: 1.125rem; }
+}
+
+.container {
+  /* `min()` replaces max-width + padding: the column shrinks with the
+     viewport and never needs a media query to stop overflowing. */
+  width: min(100% - (var(--gutter) * 2), var(--measure));
+  max-width: none;
+  margin-inline: auto;
+  padding: 0;
+}
+
+/* Landscape on a notched iPhone puts the safe area at the sides, where
+   it would otherwise clip the first and last characters of every line. */
+@supports (padding: max(0px)) {
+  @media (orientation: landscape) {
+    .container {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
+    }
+  }
+}
+
+/* ── Fluid type ─────────────────────────────────────────────────────
+   Replaces the fixed sizes AND the old `max-width: 480px` hero block,
+   which only knew about two widths. */
+
+section.hero {
+  padding: clamp(2.5rem, 9vw, 6rem) 0 clamp(2.25rem, 6vw, 4rem);
+}
+section.hero .glyph-lg {
+  width: clamp(68px, 17vw, 96px);
+  height: clamp(68px, 17vw, 96px);
+}
+section.hero h1 {
+  /* 6.2vw is what makes "Voice cloning that never leaves your iPhone."
+     land on three lines at 375 and two at 1280, instead of the same
+     three lines at every width. */
+  font-size: clamp(2.0625rem, 6.2vw, 3.75rem);
+  line-height: 1.04;
+  /* A long product name ("Voice Clone & Changer") has nowhere to break
+     on a narrow phone. */
+  overflow-wrap: break-word;
+}
+section.hero .tagline {
+  font-size: clamp(1.0625rem, 2.6vw, 1.375rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+section.features { padding: clamp(2.25rem, 6vw, 4rem) 0; }
+section.features h2 { margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+
+.feature h3 { font-size: clamp(1.25rem, 2.4vw, 1.5rem); }
+
+article.doc { padding: clamp(2rem, 6vw, 3.5rem) 0 2rem; }
+article.doc h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.12; }
+article.doc h2 { font-size: clamp(1.25rem, 2.6vw, 1.5rem); }
+
+section.privacy-callout {
+  margin: clamp(2rem, 6vw, 3.5rem) 0;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+}
+section.privacy-callout h2 { font-size: clamp(1.3125rem, 3vw, 1.625rem); }
+
+/* ── The feature grid actually uses a wide screen ───────────────────
+   Two columns once there is room for two comfortable measures. Keyed
+   to the container's own width via the same 640px figure, so it flips
+   when the content has space rather than at a device-shaped number. */
+@media (min-width: 700px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 3vw, 2.75rem) 2.5rem;
+  }
+}
+
+/* ── Long unbreakable strings ───────────────────────────────────────
+   Support and privacy pages carry email addresses and URLs, which are
+   single "words" as far as wrapping is concerned and are exactly what
+   pushes a narrow layout sideways. */
+article.doc p,
+article.doc li,
+.feature p,
+section.privacy-callout p,
+footer {
+  overflow-wrap: break-word;
+}
+
+/* ── Touch targets ─────────────────────────────────────────────────
+   Apple's minimum is 44×44pt. Footer nav links were ~20px tall, set in
+   a row a thumb has to hit. Padding is applied on coarse pointers only,
+   so the desktop layout is untouched. */
+@media (pointer: coarse) {
+  footer nav a,
+  footer .container > a {
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+  }
+  header.top a.brand { min-height: 44px; }
+}
+
+.cta a {
+  /* Comfortably tappable at any size, and never wider than the screen. */
+  min-height: 48px;
+  padding: 0.85rem 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  font-size: clamp(1rem, 1.6vw, 1.0625rem);
+}
+
+/* ── Focus visibility ──────────────────────────────────────────────
+   🔴 There was no focus style at all, so a keyboard or switch-control
+   user had no way to see where they were. `:focus-visible` shows it for
+   them without putting a ring on every mouse click. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Hover, only where hovering exists ─────────────────────────────
+   On a touch screen a `:hover` rule latches after a tap and the element
+   stays faded until something else is touched. */
+@media (hover: none) {
+  a:hover { text-decoration: none; }
+  .cta a:hover { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Images should never be the thing that makes a page scroll sideways. */
+img { max-width: 100%; height: auto; }
+
+/* ── Print ─────────────────────────────────────────────────────────
+   Privacy policies get printed and filed, and a dark-mode print is a
+   waste of toner and unreadable. */
+@media print {
+  :root {
+    --bg: #fff; --surface: #fff; --surface-muted: #f4f4f4;
+    --text: #000; --text-secondary: #333; --text-tertiary: #555;
+    --hairline: #ccc; --brand: #000; --brand-soft: #f0f0f0;
+  }
+  header.top, footer nav, .cta { display: none; }
+  .container { width: 100%; }
+  a { color: #000; text-decoration: underline; }
+  article.doc { padding-top: 0; }
+}
