@@ -4,4 +4,8 @@ Allow: /
 # Internal backend wiring check — not content.
 Disallow: /test/
 
+# Moderation launcher. Internal, and an indexed one would advertise the
+# endpoint it points at.
+Disallow: /mimic/admin/
+
 Sitemap: https://greg-wolny.github.io/sitemap.xml

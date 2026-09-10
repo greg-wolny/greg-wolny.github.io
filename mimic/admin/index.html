@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mimic — voice moderation</title>
+  <!-- Not a public page. Excluded from search and from the sitemap: it is
+       an internal launcher, and an indexed one would invite probing at the
+       endpoint it points to. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    .launch {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 22px; margin: 26px 0 10px;
+      border: 1.5px solid var(--brand); border-radius: 16px;
+      background: var(--surface); text-decoration: none; color: var(--text);
+    }
+    .launch:hover { background: var(--surface-muted); }
+    .launch .big { font-size: 19px; font-weight: 600; display: block; }
+    .launch .sub { font-size: 14px; color: var(--text-secondary); }
+    .launch .arrow { margin-left: auto; color: var(--text-tertiary); font-size: 20px; }
+    .fallback { border: 1px solid var(--hairline); border-radius: 14px;
+      padding: 18px 20px; background: var(--surface); margin: 22px 0; }
+    .fallback h2 { font-size: 15px; margin: 0 0 6px; }
+    pre { background: var(--surface-muted); border-radius: 10px; padding: 12px 14px;
+      overflow-x: auto; font-size: 13px; margin: 10px 0 6px; }
+    .why { color: var(--text-secondary); font-size: 14px; }
+    .why code { background: var(--surface-muted); padding: 1px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <a class="brand" href="/mimic/">
+        <img class="glyph-sm" src="../icon.png" alt="" width="22" height="22">
+        <span>Mimic</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Voice moderation</h1>
+    <p class="why">
+      Review, approve and take down voices submitted to Mimic's Public library.
+      This page is only a bookmark. The dashboard itself runs on the backend —
+      approving a voice writes to a database, and GitHub Pages serves static
+      files only, so it cannot proxy. Keep this page to yourself: the link
+      below is the dashboard's unguessable address, which is half of what
+      protects it.
+    </p>
+
+    <a class="launch" id="remote" href="https://64-181-251-135.nip.io/moderate-f8e862679a2d/">
+      <span>
+        <span class="big">Open the dashboard</span>
+        <span class="sub">Username <code>greg</code> · your moderator password</span>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <div class="fallback">
+      <h2>If the link 404s, public access isn't switched on yet</h2>
+      <p class="why">
+        One-time setup on the backend. You type the password; nobody else
+        sees it, and only its hash is stored:
+      </p>
+      <pre>ssh -i ~/.ssh/oracle_speedtest.key ubuntu@64.181.251.135
+caddy hash-password
+sudo /opt/mimic/enable-dashboard.sh '&lt;the hash it printed&gt;'</pre>
+      <p class="why">
+        There's also always the local route, which needs no password at all
+        because it never leaves your machine:
+      </p>
+      <pre>ssh -i ~/.ssh/oracle_speedtest.key -L 8080:localhost:7475 ubuntu@64.181.251.135</pre>
+      <p class="why">…then open <a href="http://localhost:8080/admin/">localhost:8080/admin/</a>.</p>
+    </div>
+
+    <div class="fallback">
+      <h2>Before you approve anything</h2>
+      <p class="why">
+        Listen to it first. The dashboard can't play a voice — synthesising one
+        needs the full converter, which doesn't fit on the backend — so render
+        the pending queue locally and play it:
+      </p>
+      <pre>Scripts/catalog.sh review</pre>
+      <p class="why">
+        A name and a description can't tell you whether a clone is of someone
+        who agreed to it. That's the whole reason a person reviews these.
+      </p>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="container">
+      <p><a href="/mimic/">Mimic</a> · <a href="/">All apps</a></p>
+    </div>
+  </footer>
+</body>
+</html>
