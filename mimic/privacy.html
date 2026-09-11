@@ -38,7 +38,7 @@
 <p class="effective">Effective 2026-09-10. Last updated 2026-09-11.</p>
 
 <div class="summary">
-  <p>Your recordings stay on your iPhone. Recording, cloning and voice conversion all run on-device, and there is no account to create. The only thing that ever leaves your device is a voice you deliberately choose to publish to the Community Library — and even then Mimic sends a mathematical voice print, never your audio. Publishing also attaches a random code so that blocking can work; nothing else is sent, and nothing is sent at all if you never publish.</p>
+  <p>Your recordings stay on your iPhone. Recording, cloning and voice conversion all run on-device, and there is no account to create. The only thing that ever leaves your device is a voice you deliberately choose to publish to the Community Library — and even then Mimic sends a mathematical voice print, never your audio. Publishing attaches a random creator code so blocking works. If you never publish, nothing is ever sent.</p>
 </div>
 
 <h2>What stays on your device</h2>
@@ -73,16 +73,16 @@
 <p>The server stores approved voices and, for each, a count of how many people liked and downloaded it. It keeps reports so we can act on them. It records the IP address of publish and report requests for a short period, purely to rate-limit abuse. There is no account and no profile, and the like and download counts are plain totals, not records of who did what.</p>
 
 <h3 id="publisher-tag">The publisher tag</h3>
-<p>When you publish your first voice, Mimic creates a <strong>random code</strong> and stores it on your device. That code is attached to voices you publish, so that the library can tell <em>"these voices came from the same place"</em> — without knowing anything at all about who you are.</p>
-<p>It exists for one reason: <strong>so other people can block you, and you can block them.</strong> Without it, blocking could only ever hide a single voice, and the same person could publish another one a minute later. It is also what stops anyone flooding the review queue.</p>
+<p>Publishing to the Community Library is entirely optional, and the library works the way any shared space does: a voice has a creator. When you publish your first voice, Mimic creates a <strong>random code</strong> and stores it on your device, so the library can tell that several voices came from the same creator.</p>
+<p>That is what makes <strong>blocking</strong> work. Block a creator and every voice of theirs disappears from your library, including whatever they publish next — without the code, blocking could only hide one voice at a time. It also keeps any one person from flooding the review queue.</p>
 <ul>
-  <li>It is <strong>random</strong>. It is not derived from your device, your Apple Account, your name, or anything about you, and it is not Apple's advertising identifier.</li>
+  <li>It is <strong>random</strong> — not derived from your device, your Apple Account, your name or anything about you, and not Apple's advertising identifier.</li>
   <li>It is <strong>only created if you publish</strong>. If you never publish a voice, one is never made.</li>
   <li>We <strong>never store the code itself</strong> — only a one-way hash of it. Other people see a short fragment of that hash and nothing more.</li>
   <li>It is <strong>not used for advertising, analytics or tracking</strong>, and it is never shared with anyone else.</li>
-  <li>It is <strong>never shown to you or to anyone else as a name</strong>. Nobody can look you up by it.</li>
+  <li>Nobody can <strong>look you up</strong> by it. It is never shown as a name, and it links to nothing but the voices you chose to publish.</li>
 </ul>
-<p>Because this code persists and is attached to what you publish, Apple's privacy label for Mimic lists <strong>Identifiers</strong> alongside User Content. We would rather declare it plainly than pretend it is not there.</p>
+<p>Because the code persists, Mimic's App Store privacy label lists <strong>Identifiers</strong> alongside User Content. It is used for app functionality and nothing else.</p>
 
 <h3>Blocking</h3>
 <p>You can block a creator from inside the app by pressing and holding any voice in the Community Library. Every voice from that creator disappears from your library, including anything they publish afterwards. Blocking happens entirely on your device — we are not told about it — and you can undo it any time in <strong>Settings &rarr; Blocked Creators</strong>.</p>
@@ -101,7 +101,7 @@
   <li>We do not upload your audio. Recordings and voice samples never leave your device.</li>
   <li>We do not run analytics, and there is no telemetry about how you use the app.</li>
   <li>We do not include third-party SDKs for advertising, tracking, attribution, crash reporting, or social media.</li>
-  <li>We do not require an account. If you publish a voice, a random publisher code is stored on your device so that blocking can work — see <a href="#publisher-tag">The publisher tag</a> above. It is not used for advertising, analytics or tracking.</li>
+  <li>We do not require an account. Publishing a voice attaches a random creator code so blocking works — see <a href="#publisher-tag">The publisher tag</a>. It is not used for advertising, analytics or tracking.</li>
   <li>We do not sell, share or rent your data.</li>
   <li>We do not track you across other companies' apps and websites.</li>
 </ul>
