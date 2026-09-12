@@ -77,7 +77,7 @@
       <p>The honest summary: if you want the absolute best-sounding clone and do not mind uploading your voice, a cloud service will beat a phone. If you care that a recording of your voice — or your child's — is not sitting in a third party's storage indefinitely, on-device is the only version of this that actually guarantees that.</p>
 
       <div class="note">
-        <p>Voice is biometric data in several jurisdictions, including under Illinois' BIPA and the EU's GDPR. "We delete it after 30 days" is a policy, not a technical guarantee. On-device processing is the only arrangement where the guarantee is structural — there is no server to send it to.</p>
+        <p>Voice is biometric data in several jurisdictions, including under Illinois' BIPA and the EU's GDPR. "We delete it after 30 days" is a policy, not a technical guarantee. On-device processing is the only arrangement where the guarantee is structural: the recording is never transmitted, so there is nothing to delete and no retention policy to trust.</p>
       </div>
 
       <h2>How to record a sample that actually works</h2>
@@ -145,7 +145,7 @@
         <p><a href="/mimic/">Mimic</a> is a voice cloning and real-time voice changing app for iPhone that runs the whole pipeline on the device. You read a short script for about 20 seconds, it builds a voice avatar on the phone, and you can then perform with that voice live through headphones or convert a recording.</p>
         <p>Cloning is <strong>microphone-only by design</strong> — there is no way to import a downloaded clip, so the person being cloned has to be present and reading. The app also asks you to confirm you have permission before it will record a sample at all.</p>
         <p>Mimic itself runs on any iPhone with iOS 18 or later. Fourteen voices ship with it: six free effects (Robot, Helium, Demon, Underwater, Whisper, Echo) that work on all of those, and eight designer voices that need Pro. Cloning and the designer voices require iPhone 15 Pro or newer, for the throughput reason above.</p>
-        <p>Nothing is uploaded. There is no account and no backend — recordings, embeddings and converted audio stay on the phone. Free to download; Mimic Pro is a monthly subscription with a 7-day free trial, or a one-time lifetime purchase.</p>
+        <p>There is no account, and your recordings and converted audio stay on the phone — cloning never contacts a server. Mimic does have a Community Library you can browse, and if you choose to share a voice you made, what gets sent is the voice print rather than your audio. Sharing is optional, everything published is reviewed by a person first, and you can withdraw it. Free to download; Mimic Pro is a monthly subscription with a 7-day free trial, or a one-time lifetime purchase.</p>
         <p class="cta"><a href="https://apps.apple.com/app/id6769644232">Download on the App Store</a></p>
       </div>
 
