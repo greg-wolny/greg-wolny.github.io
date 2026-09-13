@@ -35,10 +35,10 @@
   <article class="doc">
     <div class="container">
       <h1>Privacy Policy</h1>
-<p class="effective">Effective 2026-09-10. Last updated 2026-09-11.</p>
+<p class="effective">Effective 2026-09-10. Last updated 2026-09-12.</p>
 
 <div class="summary">
-  <p>Your recordings stay on your iPhone. Recording, cloning and voice conversion all run on-device, and there is no account to create. The only thing that ever leaves your device is a voice you deliberately choose to publish to the Community Library — and even then Mimic sends a mathematical voice print, never your audio. Publishing attaches a random creator code so blocking works. If you never publish, nothing is ever sent.</p>
+  <p>Your recordings stay on your iPhone. Recording, cloning and voice conversion all run on-device, and there is no account to create. The only thing that ever leaves your device is a voice you deliberately choose to publish to the Community Library — and even then Mimic sends a mathematical voice print, never your audio. Publishing attaches a random creator code so blocking works. If you never publish, no voice and no creator code is ever sent. Separately, Mimic counts which features get used — anonymously, with no identifier of any kind — and you can switch that off in <em>Settings &rarr; Analytics</em>.</p>
 </div>
 
 <h2>What stays on your device</h2>
@@ -51,7 +51,7 @@
 </ul>
 
 <h2>The Community Library</h2>
-<p>Mimic 1.3 added a library of voices people have chosen to share. Using it is optional, and browsing it sends us nothing about you.</p>
+<p>Mimic 1.3 added a library of voices people have chosen to share. Using it is optional, and browsing it tells us nothing about you — no account, no profile, and nothing that identifies you or records which voices you looked at.</p>
 <h3>If you publish a voice</h3>
 <p>Publishing is deliberate: you pick a voice you created, write a short description, and confirm on a separate screen that you have permission to share it. When you do, Mimic sends to our server:</p>
 <ul>
@@ -70,7 +70,7 @@
   <li>To ask about a published voice, or to report one outside the app, email the address at the bottom of this page.</li>
 </ul>
 <h3>What the server keeps</h3>
-<p>The server stores approved voices and, for each, a count of how many people liked and downloaded it. It keeps reports so we can act on them. It records the IP address of publish and report requests for a short period, purely to rate-limit abuse. There is no account and no profile, and the like and download counts are plain totals, not records of who did what.</p>
+<p>The server stores approved voices and, for each, a count of how many people liked and downloaded it. It keeps reports so we can act on them. It records the IP address of publish and report requests for a short period, purely to rate-limit abuse. It also holds the anonymous usage counts described under <a href="#usage">Anonymous usage counts</a>, which carry no identifier and are not connected to any voice or person. There is no account and no profile, and the like and download counts are plain totals, not records of who did what.</p>
 
 <h3 id="publisher-tag">The publisher tag</h3>
 <p>Publishing to the Community Library is entirely optional, and the library works the way any shared space does: a voice has a creator. When you publish your first voice, Mimic creates a <strong>random code</strong> and stores it on your device, so the library can tell that several voices came from the same creator.</p>
@@ -96,10 +96,21 @@
 </ul>
 <p>That is the entire permission surface. Mimic does not request Contacts, Location, Calendar, HealthKit, Speech Recognition, or any other capability.</p>
 
+<h2 id="usage">Anonymous usage counts</h2>
+<p>Mimic counts which features get used, so we can tell what is working and what to fix. This is the <strong>Usage Data</strong> entry on Mimic's App Store privacy label. It is not linked to you, and there is no identifier of any kind in it — not the publisher code, not a device id, not an install id, nothing that could be joined back to a person or to a published voice.</p>
+<p>When you leave the app, Mimic may send a single summary containing:</p>
+<ul>
+  <li>whether this was a first launch, and whether you are on the free tier, a trial or Pro;</li>
+  <li>your iPhone model and the major iOS version — so we know which devices can run the voice cloning;</li>
+  <li>counts of feature events, such as how many voice clones were started and how many finished.</li>
+</ul>
+<p>What is never included: your audio, your recordings, the names or descriptions of your voices, which voices you take or play, anything you type, and any free text at all. The counts are totals only — there is no record of who did what, because there is nothing in them to identify anyone.</p>
+<p><strong>You can switch this off</strong> in <em>Settings → Analytics → Share anonymous usage</em>. It is on by default; turning it off stops the app sending anything, immediately and permanently, and does not change how Mimic works.</p>
+
 <h2>What Mimic does <em>not</em> do</h2>
 <ul>
   <li>We do not upload your audio. Recordings and voice samples never leave your device.</li>
-  <li>We do not run analytics, and there is no telemetry about how you use the app.</li>
+  <li>We do not use third-party analytics, and nothing you record, say, type or pick is ever measured. See <a href="#usage">Anonymous usage counts</a> for the small amount we do count, and how to switch it off.</li>
   <li>We do not include third-party SDKs for advertising, tracking, attribution, crash reporting, or social media.</li>
   <li>We do not require an account. Publishing a voice attaches a random creator code so blocking works — see <a href="#publisher-tag">The publisher tag</a>. It is not used for advertising, analytics or tracking.</li>
   <li>We do not sell, share or rent your data.</li>
