@@ -35,10 +35,10 @@
   <article class="doc">
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p class="effective">Effective 2026-07-16. Last updated 2026-07-16.</p>
+      <p class="effective">Effective 2026-10-09. Last updated 2026-10-09.</p>
 
       <div class="summary">
-        <p>Verdict analyzes your photos and videos on your iPhone. We do not run servers, we do not collect analytics, and we do not include any third-party tracking or advertising SDKs. Your photos and videos are not uploaded to us.</p>
+        <p>Verdict analyzes your photos and videos on your iPhone, and they are never uploaded to us. Verdict counts which features get used — anonymously, with no identifier of any kind — so we can tell what is working and what to fix. We do not include any third-party tracking, analytics or advertising SDKs.</p>
       </div>
 
       <h2>What stays on your device</h2>
@@ -57,17 +57,28 @@
       <h2>Permissions Verdict may request</h2>
       <p>Verdict is deliberately minimal. It uses Apple's system photo picker, which lets you choose a single photo or video without granting access to your whole photo library. Verdict may also ask permission to send notifications (for example, a heads-up before a free trial ends); this is optional and you can decline. Verdict does not request Microphone, Location, Contacts, Calendar, HealthKit, or Photo Library write access.</p>
 
+      <h2 id="usage">Anonymous usage counts</h2>
+      <p>Verdict counts which features get used, so we can tell what is working and what to fix. This is the <strong>Usage Data</strong> entry on Verdict's App Store privacy label. It is not linked to you, and there is no identifier of any kind in it — no device id, no install id, no account, nothing that could be joined back to a person.</p>
+      <p>When you leave the app, Verdict may send a single summary containing:</p>
+      <ul>
+        <li>whether this was a first launch, whether the app was opened on a day after the first (counted once a day, so we can tell how many people come back), and whether you are on the free tier, a trial or Pro — and, if you subscribe, which plan (monthly or yearly). No price, no transaction, no receipt: Apple handles all of that and we never see it;</li>
+        <li>your iPhone model, the major iOS version and Verdict's version — so we know which devices Verdict runs well on;</li>
+        <li>counts of feature events, such as how many scans were started and finished, whether each was a photo or a video, whether the verdict leaned real or AI (as a broad band, never the image), roughly how long a scan took, how many free scans are left, whether the upgrade screen was shown, and whether something went wrong;</li>
+        <li>which settings were switched (for example the appearance or haptics), and whether optional permissions such as notifications were allowed.</li>
+      </ul>
+      <p>What is never included: your photos and videos, their thumbnails, your scan history, file names, any link you shared into Verdict, anything you type, and your location. The counts are totals only — there is no record of who did what, because there is nothing in them to identify anyone.</p>
+      <p>Because the counts carry no identifier and are not about any individual, Verdict does not ask for permission to count and does not use them for advertising or tracking. They are never sold or shared.</p>
+
       <h2>What Verdict does <em>not</em> do</h2>
       <ul>
-        <li>Analysis needs no backend — it runs entirely on your device. The only time Verdict contacts a server of ours is if you choose to send feedback (see below).</li>
-        <li>We do not collect analytics or telemetry of any kind.</li>
-        <li>We do not include third-party SDKs for advertising, tracking, attribution, crash reporting, or social media.</li>
+        <li>Analysis needs no backend — it runs entirely on your device. Verdict contacts a server of ours only to send the anonymous usage counts described above, to fetch a few app settings (such as how many free scans the free tier includes), and — if you choose — to send feedback (see below).</li>
+        <li>We do not include third-party SDKs for advertising, tracking, attribution, analytics, crash reporting, or social media.</li>
         <li>We do not upload, transmit, store, or share the photos or videos you analyze.</li>
-        <li>We do not sell, share, or rent any data, because we have no data to sell.</li>
+        <li>We do not sell, share, or rent any data.</li>
       </ul>
 
       <h2>Sending feedback</h2>
-      <p>Verdict has an optional in-app feedback form. If you choose to use it, the message you write is sent to our feedback relay along with basic technical details that help us act on it — your app version, iOS version, device model, and system language. This is the only feature that transmits anything off your device, it only happens when you tap Send, and it never includes the photos or videos you've analyzed. If you'd rather not use the form, you can email us instead.</p>
+      <p>Verdict has an optional in-app feedback form. If you choose to use it, the message you write is sent to our feedback relay along with basic technical details that help us act on it — your app version, iOS version, device model, and system language. It only happens when you tap Send, it is the only place anything you write leaves your device, and it never includes the photos or videos you've analyzed. If you'd rather not use the form, you can email us instead.</p>
 
       <h2>On-device machine learning</h2>
       <p>Verdict's AI-detection model is a SigLIP image classifier (an open-source model released under the Apache 2.0 license) that runs locally on your iPhone through ONNX Runtime. It does not talk to the network, and no analysis result leaves the device unless you choose to share it yourself.</p>
@@ -79,7 +90,7 @@
       <p>Verdict is free to download, with an optional Verdict Pro upgrade (a monthly subscription starting with a 3-day free trial, or a yearly plan starting with a 7-day free trial) that adds unlimited checks beyond the five free ones and unlocks the full evidence breakdown. Purchases are handled entirely by Apple's StoreKit: Apple processes the transaction and Verdict receives only your entitlement status, never your payment details. We do not operate any account system.</p>
 
       <h2>Children's privacy</h2>
-      <p>Verdict is not directed at children under 13 and does not knowingly collect personal information from them. Because Verdict does not collect personal information from anyone, this is largely moot.</p>
+      <p>Verdict is not directed at children under 13 and does not knowingly collect personal information from them. Verdict does not collect personal information from anyone — the anonymous usage counts above carry no identifier.</p>
 
       <h2>Changes to this policy</h2>
       <p>If Verdict ever changes how it handles data, we will update this page, bump the effective date above, and surface the change inside the app before it takes effect.</p>
