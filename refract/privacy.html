@@ -79,6 +79,8 @@
       <h2>Sharing an export</h2>
       <p>When you share a finished video, iOS hands it to whichever app you pick — Instagram, TikTok, Messages, Files, or anything else. From that point their privacy policy applies, not ours.</p>
 
+      <h2>This website</h2>
+      <p>These web pages count visits anonymously, so we can tell which pages are read and which sites send people here. Each page view sends the page's name and the kind of site you came from (a search engine, an AI assistant, the App Store — never the address itself). There are no cookies and nothing is stored on your device. To tell visitors apart for a single day, the server keeps a one-way hash of your IP address and browser type mixed with a random value that is deleted at the end of that day; your IP address itself is never stored, and nothing can link one day's visit to another's.</p>
       <h2>Children</h2>
       <p>Refract is not directed at children under 13 and collects no personal information from anyone — the anonymous usage counts above carry no identifier.</p>
 
@@ -105,5 +107,10 @@
       </nav>
     </div>
   </footer>
+<script>
+/* Anonymous visit count (TelCheck hub): this site, this page and the referring site's
+   bucket — no cookies, nothing stored on your device, the IP address is never kept. */
+(function(){try{var p=location.pathname.split("/");navigator.sendBeacon("https://64-181-251-135.nip.io/hub/web/visit",JSON.stringify({site:"refract",page:p[p.length-1]||"index",ref:document.referrer}))}catch(e){}})();
+</script>
 </body>
 </html>

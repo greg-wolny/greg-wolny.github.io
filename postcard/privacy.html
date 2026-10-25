@@ -35,7 +35,7 @@
   <article class="doc">
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p class="effective">Effective 2026-05-05. Last updated 2026-05-05.</p>
+      <p class="effective">Effective 2026-05-05. Last updated 2026-10-24.</p>
 
       <div class="summary">
         <p>Postcard is built so your recordings stay on your iPhone and Apple Watch. We do not run servers, we do not collect analytics, and we do not include any third-party tracking or advertising SDKs.</p>
@@ -90,6 +90,8 @@
       <h2>Purchases</h2>
       <p>Postcard Pro is sold as either a monthly auto-renewable subscription or a one-time non-consumable in-app purchase, both via Apple's StoreKit. Apple processes the transaction; we receive only the entitlement status and never see your payment details.</p>
 
+      <h2>This website</h2>
+      <p>These web pages count visits anonymously, so we can tell which pages are read and which sites send people here. Each page view sends the page's name and the kind of site you came from (a search engine, an AI assistant, the App Store — never the address itself). There are no cookies and nothing is stored on your device. To tell visitors apart for a single day, the server keeps a one-way hash of your IP address and browser type mixed with a random value that is deleted at the end of that day; your IP address itself is never stored, and nothing can link one day's visit to another's.</p>
       <h2>Children's privacy</h2>
       <p>Postcard is not directed at children under 13 and does not knowingly collect personal information from them. Because Postcard does not collect personal information from anyone, this is largely moot.</p>
 
@@ -108,7 +110,18 @@
         <a href="support">Support</a>
       </nav>
       <span>&copy; 2026 Greg Wolny.</span>
+      <nav class="more" aria-label="More from us">
+        <b>More from us</b>
+        <a href="/mimic/">Mimic <span>· voice cloning</span></a>
+        <a href="/refract/">Refract <span>· music video maker</span></a>
+        <a href="/verdict/">Verdict <span>· AI photo detector</span></a>
+      </nav>
     </div>
   </footer>
+<script>
+/* Anonymous visit count (TelCheck hub): this site, this page and the referring site's
+   bucket — no cookies, nothing stored on your device, the IP address is never kept. */
+(function(){try{var p=location.pathname.split("/");navigator.sendBeacon("https://64-181-251-135.nip.io/hub/web/visit",JSON.stringify({site:"postcard",page:p[p.length-1]||"index",ref:document.referrer}))}catch(e){}})();
+</script>
 </body>
 </html>

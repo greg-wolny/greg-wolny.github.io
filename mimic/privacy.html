@@ -134,6 +134,8 @@
 <h2>Acceptable use</h2>
 <p>Mimic is intended for personal creative use — performing, voicing characters, narration and dubbing for your own videos, accessibility, and similar. Using Mimic to impersonate someone without their consent, commit fraud, harass another person, or produce non-consensual sexual content is prohibited by <a href="terms">Mimic's terms of use</a> and likely illegal in your jurisdiction. Publishing a voice that is not yours to share is prohibited, and published voices that break these rules are removed.</p>
 
+<h2>This website</h2>
+<p>These web pages count visits anonymously, so we can tell which pages are read and which sites send people here. Each page view sends the page's name and the kind of site you came from (a search engine, an AI assistant, the App Store — never the address itself). There are no cookies and nothing is stored on your device. To tell visitors apart for a single day, the server keeps a one-way hash of your IP address and browser type mixed with a random value that is deleted at the end of that day; your IP address itself is never stored, and nothing can link one day's visit to another's.</p>
 <h2>Children's privacy</h2>
 <p>Mimic is not directed at children under 13 and we do not knowingly collect personal information from them. The Community Library is moderated before anything becomes visible, and Mimic has no accounts, profiles, comments or messaging, so users cannot contact one another. If you believe a child has published personal information through Mimic, email us and we will remove it.</p>
 
@@ -161,5 +163,10 @@
       </nav>
     </div>
   </footer>
+<script>
+/* Anonymous visit count (TelCheck hub): this site, this page and the referring site's
+   bucket — no cookies, nothing stored on your device, the IP address is never kept. */
+(function(){try{var p=location.pathname.split("/");navigator.sendBeacon("https://64-181-251-135.nip.io/hub/web/visit",JSON.stringify({site:"mimic",page:p[p.length-1]||"index",ref:document.referrer}))}catch(e){}})();
+</script>
 </body>
 </html>

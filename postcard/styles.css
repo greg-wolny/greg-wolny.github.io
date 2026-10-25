@@ -164,6 +164,10 @@ footer nav a {
   margin-right: 1.25rem;
 }
 footer nav a:last-child { margin-right: 0; }
+/* MORE FROM US — the web twin of the apps' Settings card: Greg's other apps, its own row. */
+footer nav.more { flex-basis: 100%; color: var(--text-tertiary); }
+footer nav.more b { font-weight: 600; margin-right: 1.25rem; }
+footer nav.more a span { color: var(--text-tertiary); }
 
 /* Document pages (privacy, support) */
 article.doc {
